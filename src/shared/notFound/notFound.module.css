@@ -1,0 +1,6 @@
+.img_notFound {
+  width: 100%;
+  height: 625px;
+  background: url(../../assets/notFound/error404.png), lightgray;
+  background-position: center;
+}

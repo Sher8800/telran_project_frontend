@@ -1,0 +1,71 @@
+.container {
+  height: 476px;
+  background: linear-gradient(223deg, #393 0%, #006300 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.img {
+  width: 422px;
+  height: 422px;
+  background: url(../../../assets/home/gnome.png);
+}
+
+.container_discount {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.text_discount {}
+
+.discount {
+  color: #FFF;
+  font-size: 90px;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 2.7px;
+}
+
+.text {
+  color: #FFF;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 1.5px;
+}
+
+.form_discount {
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.phone {
+  width: 473px;
+  height: 75.441px;
+  border-radius: 25.147px;
+  border: 2.395px solid #FFF;
+  padding: 0 50px;
+  color: #6C6C6C;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: 0.54px;
+}
+
+.btn {
+  width: 473px;
+  height: 75.441px;
+  border-radius: 25.147px;
+  border: 2.395px solid #FFF;
+  background: none;
+  color: #FFF;
+  font-size: 28.739px;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 0.862px;
+}

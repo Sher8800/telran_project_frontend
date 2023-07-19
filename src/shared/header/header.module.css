@@ -1,0 +1,65 @@
+header {
+  position: fixed;
+}
+
+.headContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 19px 28px;
+  height: 72px;
+}
+
+.container_logoCatalog,
+.container_linksCart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container_logoCatalog {
+  min-width: 300px;
+}
+
+.container_linksCart {
+  min-width: 500px;
+}
+
+.icon_logo {
+  width: 72px;
+  height: 72px;
+}
+
+.btn_catalog {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  width: 125px;
+  height: 50px;
+  align-items: flex-start;
+  gap: 5px;
+
+  border-radius: 5px;
+  border: 2px solid #393;
+  background: #393;
+
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.link_main,
+.link_products,
+.link_sales {
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0 15px;
+}
+
+.icon_cart {
+  width: 30px;
+  height: 30px;
+}
