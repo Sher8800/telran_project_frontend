@@ -1,12 +1,15 @@
 header {
-  position: fixed;
+  height: 72px;
 }
 
 .headContainer {
+  position: fixed;
+  width: 100vw;
   display: flex;
   justify-content: space-between;
-  margin: 19px 28px;
-  height: 72px;
+  padding: 19px 28px;
+  background-color: #FFF;
+  z-index: 2;
 }
 
 .container_logoCatalog,

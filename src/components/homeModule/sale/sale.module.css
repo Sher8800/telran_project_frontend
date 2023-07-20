@@ -15,6 +15,11 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+.container_product {
+  display: grid;
+  justify-content: center;
+}
+
 .img_bridge {
   width: 300px;
   height: 300px;
