@@ -16,8 +16,8 @@ export default function Header() {
                 <div className={styles.container_linksCart}>
                     <div className={styles.container_links}>
                         <Link className={styles.link_main} to="">Main Page</Link>
-                        <Link className={styles.link_products} to="#">All products</Link>
-                        <Link className={styles.link_sales} to="#">All sales</Link>
+                        <Link className={styles.link_products} to="/allProducts">All products</Link>
+                        <Link className={styles.link_sales} to="/allSales">All sales</Link>
                     </div>
                     <img className={styles.icon_cart} src={cart} alt="Cart" />
 

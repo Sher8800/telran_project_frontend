@@ -15,9 +15,12 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<Layout />} >
-          <Route path='' element={<ProductsModule />} />
           <Route path='' element={<HomeModule />} />
+          <Route path='productsInCategories' element={<Tools_and_equipment />} />
           <Route path='categories' element={<CategoriesModule />} />
+          <Route path='allProducts' element={<All_products />} />
+          <Route path='allSales' element={<Products_with_sale />} />
+          <Route path='spade' element={<ProductsModule />} />
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>

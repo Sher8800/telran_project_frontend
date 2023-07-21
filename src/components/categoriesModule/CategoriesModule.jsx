@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './categories.module.css'
+import { Link } from 'react-router-dom'
 
 export default function CategoriesModule() {
   return (
@@ -26,12 +27,12 @@ export default function CategoriesModule() {
         </div>
       </div>
 
-      <div className={styles.container_img}>
+      <Link to='/productsInCategories' className={styles.container_img}>
         <div className={styles.img_text}>
           <div className={styles.img_inventory}></div>
           <p className={styles.text}>Tools and Inventory</p>
         </div>
-      </div>
+      </Link>
 
       <div className={styles.container_img}>
         <div className={styles.img_text}>

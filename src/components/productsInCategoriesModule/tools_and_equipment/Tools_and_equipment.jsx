@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './tools_and_equipment.module.css'
+import { Link } from 'react-router-dom'
 
 export default function Tools_and_equipment() {
   return (
@@ -84,7 +85,7 @@ export default function Tools_and_equipment() {
           </div>
         </div>
 
-        <div className={styles.product_container}>
+        <Link to='/spade' className={styles.product_container}>
           <div className={styles.img_shovel}></div>
           <div className={styles.product_description}>
             <div className={styles.container_price}>
@@ -94,7 +95,7 @@ export default function Tools_and_equipment() {
             </div>
             <p className={styles.name_product}>bayonet shovel</p>
           </div>
-        </div>
+        </Link>
 
         <div className={styles.product_container}>
           <div className={styles.img_pitchfork}></div>
