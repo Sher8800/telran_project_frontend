@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './all_products.module.css'
 import secateurs from '../../../assets/productsInCategories/secateurs.png'
 import ViewProducts from './viewProducts/ViewProducts';
@@ -7,6 +7,7 @@ import FilterProducts from './filterProducts/FilterProducts';
 
 
 export default function All_products() {
+
 
   const productsInitialState = [
     {
@@ -76,10 +77,21 @@ export default function All_products() {
     },
   ];
 
+  let url = 'http://localhost:3333/products/all'
+
+  let productsAll = []
+
+  const [allProducts, setAllProducts] = useState(productsAll)
+
+  fetch(url)
+    .then(response => response.json())
+    .then(products => setAllProducts([...products]));
+
   const [products, setProducts] = useState(productsInitialState)
 
+  // console.log(products)
   const sortProducts = (event) => {
-    console.log(event);
+    // console.log(event);
     switch (event.target.value) {
 
       case 'highter':
@@ -134,7 +146,7 @@ export default function All_products() {
       </div>
 
       <div className={styles.products_container}>
-        <ViewProducts products={products} />
+        <ViewProducts allProducts={allProducts} products={products} />
       </div>
     </div>
   )
