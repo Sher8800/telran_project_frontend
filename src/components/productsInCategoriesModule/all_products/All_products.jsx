@@ -79,46 +79,44 @@ export default function All_products() {
 
   let url = 'http://localhost:3333/products/all'
 
-  let productsAll = []
+  const productsAll = []
 
   const [allProducts, setAllProducts] = useState(productsAll)
+
 
   fetch(url)
     .then(response => response.json())
     .then(products => setAllProducts([...products]));
 
-  const [products, setProducts] = useState(productsInitialState)
-
-  // console.log(products)
   const sortProducts = (event) => {
-    // console.log(event);
+
     switch (event.target.value) {
 
       case 'highter':
-        products.sort((a, b) => {
-          return a.newPrice - b.newPrice
+        allProducts.sort((a, b) => {
+          return a.price - b.price
         })
-        setProducts([...products])
+        setAllProducts([...allProducts])
+        console.log(allProducts);
         break;
 
       case 'lower':
-        products.sort((a, b) => {
-          return b.newPrice - a.newPrice
+        allProducts.sort((a, b) => {
+          return b.price - a.price
         })
-        setProducts([...products])
+        setAllProducts([...allProducts])
         break;
 
-      default: setProducts([...productsInitialState])
-        break;
+      // default: setAllProducts([...productsAll])
+      // break;
     }
   }
 
   const filterProducts = (priceFrom, priceTo) => {
-    products.filter((product) => {
-      return setProducts(product.newPrice > priceFrom && product.newPrice < priceTo)
+    allProducts.filter((product) => {
+      return setAllProducts(product.price > priceFrom && product.price < priceTo)
     })
   }
-
 
 
   return (
@@ -146,7 +144,7 @@ export default function All_products() {
       </div>
 
       <div className={styles.products_container}>
-        <ViewProducts allProducts={allProducts} products={products} />
+        <ViewProducts allProducts={allProducts} />
       </div>
     </div>
   )
