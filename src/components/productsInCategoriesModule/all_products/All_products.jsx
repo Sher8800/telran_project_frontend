@@ -1,92 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import styles from './all_products.module.css'
-import secateurs from '../../../assets/productsInCategories/secateurs.png'
 import ViewProducts from './viewProducts/ViewProducts';
 import SortProducts from './sortProducts/SortProducts';
 import FilterProducts from './filterProducts/FilterProducts';
-
+import { API_URL } from '../../../globalVariables/GlobalVariables';
 
 export default function All_products() {
 
+  const URL = `${API_URL}products/all`
 
-  const productsInitialState = [
-    {
-      name: 'as;dfk',
-      newPrice: 2,
-      oldPrice: 4,
-      discount: 1,
-      imgSrc: secateurs,
-      id: 1,
-    },
+  const [allProducts, setAllProducts] = useState([])
 
-    {
-      name: 'as;dfk',
-      newPrice: 6,
-      oldPrice: 5,
-      discount: 2,
-      imgSrc: secateurs,
-      id: 2,
-    },
-    {
-      name: 'as;dfk',
-      newPrice: 9,
-      oldPrice: 43,
-      discount: 8,
-      imgSrc: secateurs,
-      id: 3,
-    },
-    {
-      name: 'alk',
-      newPrice: 0,
-      oldPrice: 7,
-      discount: 0,
-      imgSrc: secateurs,
-      id: 4,
-    },
-    {
-      name: 'alk',
-      newPrice: 0,
-      oldPrice: 0,
-      discount: 0,
-      imgSrc: secateurs,
-      id: 5,
-    },
-    {
-      name: 'ppkop',
-      newPrice: 0,
-      oldPrice: 0,
-      discount: 0,
-      imgSrc: secateurs,
-      id: 6,
-    },
-    {
-      name: 'ppkop',
-      newPrice: 0,
-      oldPrice: 0,
-      discount: 0,
-      imgSrc: secateurs,
-      id: 7,
-    },
-    {
-      name: 'ppkop',
-      newPrice: 0,
-      oldPrice: 0,
-      discount: 0,
-      imgSrc: secateurs,
-      id: 8,
-    },
-  ];
+  const [defaultProducts, setDefaultProducts] = useState(null);
 
-  let url = 'http://localhost:3333/products/all'
+  useEffect(() => {
+    fetch(URL)
+      .then(response => response.json())
+      .then(products => {
+        console.log(products);
+        setDefaultProducts([...products]);
+        setAllProducts([...products])
+      });
+  }, [])
 
-  const productsAll = []
-
-  const [allProducts, setAllProducts] = useState(productsAll)
-
-
-  fetch(url)
-    .then(response => response.json())
-    .then(products => setAllProducts([...products]));
 
   const sortProducts = (event) => {
 
@@ -94,28 +30,28 @@ export default function All_products() {
 
       case 'highter':
         allProducts.sort((a, b) => {
-          return a.price - b.price
-        })
-        setAllProducts([...allProducts])
-        console.log(allProducts);
-        break;
-
-      case 'lower':
-        allProducts.sort((a, b) => {
           return b.price - a.price
         })
         setAllProducts([...allProducts])
         break;
 
-      // default: setAllProducts([...productsAll])
-      // break;
+      case 'lower':
+        allProducts.sort((a, b) => {
+          return a.price - b.price
+        })
+        setAllProducts([...allProducts])
+        break;
+
+      default:
+        setAllProducts([...defaultProducts])
+        break;
     }
   }
 
   const filterProducts = (priceFrom, priceTo) => {
-    allProducts.filter((product) => {
-      return setAllProducts(product.price > priceFrom && product.price < priceTo)
-    })
+    setAllProducts(allProducts.filter((product) => {
+      return product.price > priceFrom && product.price < priceTo
+    }))
   }
 
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styles from './categories.module.css'
-import { Link } from 'react-router-dom'
 
 export default function CategoriesModule() {
   const API_URL = "http://localhost:3333/"
@@ -9,7 +8,6 @@ export default function CategoriesModule() {
   const categoriesAll = []
 
   const [allCategories, setAllCategories] = useState(categoriesAll)
-  console.log(allCategories);
 
   fetch(URL)
     .then(response => response.json())
@@ -21,7 +19,7 @@ export default function CategoriesModule() {
         {allCategories.map((product) => {
           return <div key={product.id} className={styles.container_img}>
             <div className={styles.img_text}>
-              <div >
+              <div>
                 <img className={styles.img_fertilizer} src={API_URL + product.image} alt="" />
               </div>
               <p className={styles.text}>{product.title}</p>
