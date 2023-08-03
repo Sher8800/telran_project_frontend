@@ -48,10 +48,18 @@ export default function All_products() {
     }
   }
 
-  const filterProducts = (priceFrom, priceTo) => {
-    setAllProducts(allProducts.filter((product) => {
-      return product.price > priceFrom && product.price < priceTo
-    }))
+  const filterProductsByMin = (priceFrom) => {
+    const filteredProducts = defaultProducts.filter((product) => {
+      return product.price > priceFrom
+    })
+    setAllProducts([...filteredProducts])
+  }
+
+  const filterProductsByMax = (priceTo) => {
+    const filteredProducts = defaultProducts.filter((product) => {
+      return product.price < priceTo
+    })
+    setAllProducts([...filteredProducts])
   }
 
 
@@ -61,7 +69,7 @@ export default function All_products() {
 
       <div className={styles.form_container}>
 
-        <FilterProducts filterProducts={filterProducts} />
+        <FilterProducts filterProductsByMin={filterProductsByMin} filterProductsByMax={filterProductsByMax} />
 
         <div className={styles.discount_container}>
           <span className={styles.text}>Discounted items</span>

@@ -8,6 +8,7 @@ import Tools_and_equipment from './components/productsInCategoriesModule/tools_a
 import All_products from './components/productsInCategoriesModule/all_products/All_products';
 import Products_with_sale from './components/productsInCategoriesModule/products_with_sale/Products_with_sale';
 import ProductsModule from './components/productsModule/productsModule';
+import BasketModule from './components/basketModule/basketModule';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='allProducts' element={<All_products />} />
           <Route path='allSales' element={<Products_with_sale />} />
           <Route path='spade' element={<ProductsModule />} />
+          <Route path='cart' element={<BasketModule />} />
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>

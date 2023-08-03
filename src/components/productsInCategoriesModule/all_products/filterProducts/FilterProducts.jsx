@@ -3,7 +3,7 @@ import styles from '../all_products.module.css'
 import ProductsModule from '../../../productsModule/productsModule'
 
 
-export default function FilterProducts({ filterProducts }) {
+export default function FilterProducts({ filterProductsByMin, filterProductsByMax }) {
   const [priceFrom, setPriceFrom] = useState('')
   const [priceTo, setPriceTo] = useState('')
 
@@ -13,11 +13,11 @@ export default function FilterProducts({ filterProducts }) {
         <span className={styles.text}>Price</span>
         <input onChange={(event) => {
           setPriceFrom(event.target.value)
-          filterProducts(priceFrom, priceTo)
+          filterProductsByMin(event.target.value)
         }} placeholder='from' className={styles.price_input}></input>
         <input onChange={(event) => {
           setPriceTo(event.target.value)
-          filterProducts(priceFrom, priceTo)
+          filterProductsByMax(event.target.value)
         }} placeholder='to' className={styles.price_input}></input>
       </div>
     </>

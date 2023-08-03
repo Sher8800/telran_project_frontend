@@ -19,7 +19,9 @@ export default function Header() {
                         <Link className={styles.link_products} to="/allProducts">All products</Link>
                         <Link className={styles.link_sales} to="/allSales">All sales</Link>
                     </div>
-                    <img className={styles.icon_cart} src={cart} alt="Cart" />
+                    <Link to={"/cart"}>
+                        <img className={styles.icon_cart} src={cart} alt="Cart" />
+                    </Link>
 
                 </div>
 
