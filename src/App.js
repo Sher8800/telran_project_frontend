@@ -9,6 +9,7 @@ import All_products from './components/productsInCategoriesModule/all_products/A
 import Products_with_sale from './components/productsInCategoriesModule/products_with_sale/Products_with_sale';
 import ProductsModule from './components/productsModule/productsModule';
 import BasketModule from './components/basketModule/basketModule';
+import NewSeason from './components/homeModule/newSeason/NewSeason';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path='allSales' element={<Products_with_sale />} />
           <Route path='spade' element={<ProductsModule />} />
           <Route path='cart' element={<BasketModule />} />
+          <Route path='sale' element={<Products_with_sale />} />
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>

@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './newSeason.module.css'
+import { Link } from 'react-router-dom'
 
 
 export default function NewSeason() {
@@ -10,7 +11,7 @@ export default function NewSeason() {
           <p className={styles.sale}>Sale</p>
           <p className={styles.new_season}>New season</p>
         </div>
-        <div className={styles.btn}>Sale</div>
+        <Link to={"/sale"} className={styles.btn}>Sale</Link>
       </div>
       <div className={styles.garden_flowers}></div>
     </div>

@@ -1,14 +1,20 @@
 .cotainer_categories {
-  margin: 40px 32px 90px 32px;
+  margin: 79px 32px 50px 32px;
+}
+
+.heading_text {
+  color: #000;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  margin-bottom: 81px;
+  padding-left: 22.5px;
+}
+
+.categories {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-row-gap: 35px;
-  justify-items: center;
-}
-
-.container_img {
-  display: flex;
-  justify-content: space-between;
 }
 
 .img_text {
