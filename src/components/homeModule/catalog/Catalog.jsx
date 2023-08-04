@@ -7,9 +7,9 @@ export default function Catalog() {
     <div className={styles.container}>
       <div className={styles.container_text_btn}>
         <p className={styles.catalog}>Catalog</p>
-        <div className={styles.btn}>
-          <Link className={styles.btn_item_text} to="/categories">All categories</Link>
-        </div>
+        <Link className={styles.btn} to="/categories">
+          <p className={styles.btn_item_text} >All categories</p>
+        </Link>
       </div>
       <div className={styles.container_img}>
         <div className={styles.img_text}>

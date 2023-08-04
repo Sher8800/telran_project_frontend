@@ -8,13 +8,17 @@
   font-weight: 700;
   letter-spacing: 1.2px;
   margin-bottom: 81px;
-  padding-left: 22.5px;
 }
 
 .categories {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-row-gap: 35px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.container_img {
+  margin-bottom: 35px;
+  text-decoration: none;
 }
 
 .img_text {
@@ -29,6 +33,7 @@
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.54px;
+  text-align: center;
 }
 
 .text_long {
@@ -41,7 +46,7 @@
   letter-spacing: 0.54px;
 }
 
-.img_fertilizer {
+.img_categories {
   width: 318px;
   height: 350px;
 }
