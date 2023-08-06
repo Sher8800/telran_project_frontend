@@ -17,7 +17,6 @@ export default function All_products() {
     fetch(URL)
       .then(response => response.json())
       .then(products => {
-        console.log(products);
         setDefaultProducts([...products]);
         setAllProducts([...products])
       });
@@ -56,10 +55,10 @@ export default function All_products() {
   }
 
   const filterProductsByMax = (priceTo) => {
-    const filteredProducts = defaultProducts.filter((product) => {
-      return product.price < priceTo
-    })
-    setAllProducts([...filteredProducts])
+    if (priceTo) {
+      const filteredProducts = allProducts.filter((product) => { return product.price < priceTo });
+      setTimeout(() => { setAllProducts([...filteredProducts]) }, 1500)
+    }
   }
 
 

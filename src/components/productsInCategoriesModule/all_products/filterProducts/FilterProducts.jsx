@@ -5,7 +5,7 @@ import ProductsModule from '../../../productsModule/productsModule'
 
 export default function FilterProducts({ filterProductsByMin, filterProductsByMax }) {
   const [priceFrom, setPriceFrom] = useState('')
-  const [priceTo, setPriceTo] = useState('')
+  const [priceTo, setPriceTo] = useState(1000)
 
   return (
     <>

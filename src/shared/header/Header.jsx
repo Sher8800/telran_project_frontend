@@ -11,7 +11,7 @@ export default function Header() {
 
                 <div className={styles.container_logoCatalog}>
                     <img className={styles.icon_logo} src={logo} alt="Logo" />
-                    <Link className={styles.btn_catalog} to="/productsInCategories">Catalog</Link>
+                    <Link to="/categories" className={styles.btn_catalog} >Catalog</Link>
                 </div>
                 <div className={styles.container_linksCart}>
                     <div className={styles.container_links}>

@@ -14,6 +14,7 @@
   display: flex;
   justify-content: space-between;
   max-width: 70%;
+  column-gap: 30px;
 }
 
 .price_container {
@@ -44,7 +45,6 @@
 
 .discount_container {
   width: 350px;
-  padding: 0 20px 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;

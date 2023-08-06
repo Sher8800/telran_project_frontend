@@ -9,13 +9,9 @@ import All_products from './components/productsInCategoriesModule/all_products/A
 import Products_with_sale from './components/productsInCategoriesModule/products_with_sale/Products_with_sale';
 import ProductsModule from './components/productsModule/productsModule';
 import BasketModule from './components/basketModule/basketModule';
-import { useLocation } from "react-router";
 
 
 function App() {
-  const location = useLocation();
-  const { state } = location;
-  console.log(state);
   return (
     <div className="App">
       <Routes>
