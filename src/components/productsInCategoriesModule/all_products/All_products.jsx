@@ -4,6 +4,9 @@ import ViewProducts from './viewProducts/ViewProducts';
 import SortProducts from './sortProducts/SortProducts';
 import FilterProducts from './filterProducts/FilterProducts';
 import { API_URL } from '../../../globalVariables/GlobalVariables';
+import { useSelector, useDispatch } from 'react-redux'
+import { basketSelector, addProduct, removeProduct } from '../../../store/slices/BasketSlices';
+
 
 export default function All_products() {
 
@@ -12,6 +15,9 @@ export default function All_products() {
   const [allProducts, setAllProducts] = useState([])
 
   const [defaultProducts, setDefaultProducts] = useState(null);
+
+  const basketProduct = useSelector(basketSelector)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     fetch(URL)

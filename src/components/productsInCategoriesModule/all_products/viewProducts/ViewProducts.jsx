@@ -2,6 +2,8 @@ import React from 'react'
 import styles from '../all_products.module.css'
 import { API_URL } from '../../../../globalVariables/GlobalVariables'
 
+
+
 export default function ViewProducts({ allProducts }) {
 
   return (

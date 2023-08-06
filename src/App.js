@@ -9,10 +9,12 @@ import All_products from './components/productsInCategoriesModule/all_products/A
 import Products_with_sale from './components/productsInCategoriesModule/products_with_sale/Products_with_sale';
 import ProductsModule from './components/productsModule/productsModule';
 import BasketModule from './components/basketModule/basketModule';
+// import { Context } from './context';
 
 
 function App() {
   return (
+    // <Context.Provider value={{}}>
     <div className="App">
       <Routes>
         <Route path='/' element={<Layout />} >
@@ -28,6 +30,7 @@ function App() {
         </Route>
       </Routes>
     </div >
+    // </Context.Provider>
   );
 }
 
