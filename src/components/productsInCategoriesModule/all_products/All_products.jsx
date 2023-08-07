@@ -16,7 +16,7 @@ export default function All_products() {
 
   const [defaultProducts, setDefaultProducts] = useState(null);
 
-  const basketProduct = useSelector(basketSelector)
+  // const basketProduct = useSelector(basketSelector)
   const dispatch = useDispatch()
 
   useEffect(() => {
