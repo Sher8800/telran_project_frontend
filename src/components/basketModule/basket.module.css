@@ -34,14 +34,19 @@
 }
 
 .product_order_container {
+  /* height: auto; */
   display: grid;
   grid-template-columns: 2fr 1fr;
   column-gap: 52px;
 }
 
-.products_container {
-  height: 247px;
+.product_container:first-child {
   border-top: 1px solid #A7A7A7;
+
+}
+
+.product_container {
+  height: 247px;
   border-bottom: 1px solid #A7A7A7;
   display: grid;
   grid-template-columns: 2fr 3fr 3fr 1fr;

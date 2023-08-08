@@ -1,22 +1,21 @@
 import React from 'react'
 import styles from '../all_products.module.css'
 import { API_URL } from '../../../../globalVariables/GlobalVariables'
-import { Link } from 'react-router-dom'
-import Button from '../../../../UI/button/Button'
-
+import { NavLink } from 'react-router-dom'
+import Button from '../../../../UI/button'
 
 
 export default function ViewProducts({ allProducts, addProduct }) {
 
   return (
     <>
-      {allProducts.map((product) => {
+      {allProducts.map((product) => (
 
-        return <div key={product.id} className={styles.product_container}>
-          <Link className={styles.container_img_btn}>
+        <div key={product.id} className={styles.product_container}>
+          <NavLink to={'/product'} state={{ id: product.id, title: product.title }} className={styles.container_img_btn}>
             <img className={styles.img_product} src={API_URL + product.image} alt="product" />
-            <Button className={styles.btn_add} onClick={addProduct} buttonText={'Add to cart'} />
-          </Link>
+          </NavLink>
+          <Button className={styles.btn_add} onClick={() => addProduct(product)} buttonText={'Add to cart'} />
 
           <div className={styles.product_description}>
             <div className={styles.container_price}>
@@ -34,7 +33,7 @@ export default function ViewProducts({ allProducts, addProduct }) {
           </div>
         </div>
 
-      })}
+      ))}
     </>
   )
 }

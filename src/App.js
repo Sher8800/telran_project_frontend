@@ -26,6 +26,7 @@ function App() {
           <Route path='cart' element={<BasketModule />} />
           <Route path='sale' element={<Products_with_sale />} />
           <Route path='productsInCategories' element={<ProductsInCategories />} />
+          <Route path='product' element={<ProductsModule />} />
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>

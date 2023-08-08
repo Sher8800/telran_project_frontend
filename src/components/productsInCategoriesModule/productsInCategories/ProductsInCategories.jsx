@@ -1,48 +1,46 @@
 import React, { useState, useEffect } from 'react'
-import styles from './products_with_sale.module.css'
-import SortProducts from '../all_products/sortProducts/SortProducts';
+import styles from './productsInCategories.module.css'
+import { API_URL } from '../../../globalVariables/GlobalVariables'
 import FilterProducts from '../all_products/filterProducts/FilterProducts';
-import { useLocation } from 'react-router-dom';
-import { API_URL } from '../../../globalVariables/GlobalVariables';
+import SortProducts from '../all_products/sortProducts/SortProducts';
+import { useLocation } from "react-router";
 
-export default function Products_with_sale() {
+export default function ProductsInCategories() {
 
-  const [allProducts, setAllProducts] = useState([]);
+  const [categorieProducts, setCategorieProducts] = useState([])
   const [defaultProducts, setDefaultProducts] = useState([]);
 
-  // const location = useLocation;
-  // const { state } = location;
+  const location = useLocation();
+  const { state } = location;
 
-  const URL = `${API_URL}products/all`
+  const URL = `${API_URL}categories/${state.id}`
 
   useEffect(() => {
     fetch(URL)
       .then(response => response.json())
-      .then(products => { setAllProducts(products); setDefaultProducts(products) });
+      .then(products => { setCategorieProducts([...products.data]); setDefaultProducts([...products.data]) });
   }, [])
-
-  const productsWithSale = allProducts.filter((product) => product.discont_price)
 
   const sortProducts = (event) => {
 
     switch (event.target.value) {
 
       case 'highter':
-        allProducts.sort((a, b) => {
+        categorieProducts.sort((a, b) => {
           return b.price - a.price
         })
-        setAllProducts([...allProducts])
+        setCategorieProducts([...categorieProducts])
         break;
 
       case 'lower':
-        allProducts.sort((a, b) => {
+        categorieProducts.sort((a, b) => {
           return a.price - b.price
         })
-        setAllProducts([...allProducts])
+        setCategorieProducts([...categorieProducts])
         break;
 
       default:
-        setAllProducts([...defaultProducts])
+        setCategorieProducts([...defaultProducts])
         break;
     }
   }
@@ -51,23 +49,31 @@ export default function Products_with_sale() {
     const filteredProducts = defaultProducts.filter((product) => {
       return product.price > priceFrom
     })
-    setAllProducts([...filteredProducts])
+    setCategorieProducts([...filteredProducts])
   }
 
   const filterProductsByMax = (priceTo) => {
     const filteredProducts = defaultProducts.filter((product) => {
       return product.price < priceTo
     })
-    setAllProducts([...filteredProducts])
+    setCategorieProducts([...filteredProducts])
   }
+
 
   return (
     <div className={styles.tools_container}>
-      <p className={styles.rubric}>Products with sale</p>
+      <p className={styles.rubric}>{state.title}</p>
 
       <div className={styles.form_container}>
 
         <FilterProducts filterProductsByMin={filterProductsByMin} filterProductsByMax={filterProductsByMax} />
+
+        <div className={styles.discount_container}>
+          <span className={styles.text}>Discounted items</span>
+          <span>
+            <input type='checkbox' className={styles.discount_checkbox}></input>
+          </span>
+        </div>
 
         <div className={styles.sort_container}>
           <span className={styles.text}>Sorted</span>
@@ -80,22 +86,28 @@ export default function Products_with_sale() {
 
       <div className={styles.products_container}>
 
-        {productsWithSale.map((product) => (
-          <div key={product.id} className={styles.product_container}>
+        {categorieProducts.map((product) => {
+          return <div className={styles.product_container} key={product.id}>
             <img className={styles.img_product} src={API_URL + product.image} alt="product" />
             <div className={styles.product_description}>
               <div className={styles.container_price}>
                 <p className={styles.new_price}>{product.price}<span className={styles.price_dollar}>$</span></p>
-                <p className={styles.old_price}>{Math.ceil(product.price / (1 - (product.discont_price / 100))) + '$'}</p>
-                <p className={styles.discount}>{product.discont_price + '%'}</p>
+                {product.discont_price ?
+                  <>
+                    <p className={styles.old_price}>{Math.ceil(product.price / (1 - (product.discont_price / 100))) + '$'}</p>
+                    <p className={styles.discount}>{product.discont_price + '%'}</p>
+                  </>
+                  : ''
+                }
               </div>
               <p className={styles.name_product}>{product.title}</p>
             </div>
           </div>
-        ))}
 
+        })}
       </div>
-    </div>
+    </div >
   )
 }
+
 

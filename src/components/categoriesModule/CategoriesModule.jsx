@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './categories.module.css'
 import { API_URL } from '../../globalVariables/GlobalVariables'
 import { NavLink } from 'react-router-dom'
+import { ProductService } from '../../services/product.service'
 
 export default function CategoriesModule() {
   const URL = `${API_URL}categories/all`
@@ -9,9 +10,13 @@ export default function CategoriesModule() {
 
   const [allCategories, setAllCategories] = useState([])
 
-  fetch(URL)
-    .then(response => response.json())
-    .then(products => setAllCategories([...products]));
+  useEffect(() => {
+    const getCategories = async () => {
+      const products = await ProductService.getCategories()
+      setAllCategories(products)
+    }
+    getCategories()
+  }, [])
 
   return (
     <>

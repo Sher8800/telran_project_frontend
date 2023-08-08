@@ -6,27 +6,40 @@ import FilterProducts from './filterProducts/FilterProducts';
 import { API_URL } from '../../../globalVariables/GlobalVariables';
 import { useSelector, useDispatch } from 'react-redux'
 import { basketSelector, addProduct, removeProduct } from '../../../store/slices/BasketSlices';
+import { ProductService } from '../../../services/product.service';
 
 
 export default function All_products() {
 
-  const URL = `${API_URL}products/all`
 
   const [allProducts, setAllProducts] = useState([])
 
   const [defaultProducts, setDefaultProducts] = useState(null);
 
-  // const basketProduct = useSelector(basketSelector)
+  const basketProduct = useSelector(state => state.basket)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    fetch(URL)
-      .then(response => response.json())
-      .then(products => {
-        setDefaultProducts([...products]);
-        setAllProducts([...products])
-      });
+    const getProducts = async () => {
+      const products = await ProductService.getProducts()
+      setDefaultProducts(products);
+      setAllProducts(products)
+    }
+    getProducts()
+    // fetch(URL)
+    //   .then(response => response.json())
+    //   .then(products => {
+    //     setDefaultProducts([...products]);
+    //     setAllProducts([...products])
+    //   });
   }, [])
+
+  const addProductInBasket = (product) => {
+    // event.preventDefault()
+    // event.stopPropagation()
+    // console.log(product);
+    dispatch(addProduct(product))
+  }
 
 
   const sortProducts = (event) => {
@@ -93,7 +106,7 @@ export default function All_products() {
       </div>
 
       <div className={styles.products_container}>
-        <ViewProducts allProducts={allProducts} />
+        <ViewProducts addProduct={addProductInBasket} allProducts={allProducts} />
       </div>
     </div>
   )

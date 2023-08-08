@@ -20,17 +20,24 @@
 .img {
   width: 710px;
   height: 710px;
-  background: url(../../assets/products/spade.png);
+  /* width: 510px;
+  height: 510px; */
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
 .description_container {
   width: 412px;
-  height: 500px;
+  /* height: 500px; */
+  height: auto;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  margin-bottom: 50px
+  /* margin-bottom: 50px */
+}
+
+.container_price_btn {
+  border-bottom: 1px dashed #C0C0C0;
 }
 
 .container_price {
@@ -84,12 +91,16 @@
   color: #FFF;
   font-size: 28px;
   font-weight: 700;
-  margin: 40px 0 15px 0;
+  margin: 40px 0 40px 0;
 }
 
-.border_dashed {
+/* .border_dashed {
   border-bottom: 1px dashed #C0C0C0;
-}
+} */
+
+/* .description_product {
+  height: auto;
+} */
 
 .text_description {
   color: #000;
@@ -97,6 +108,7 @@
   font-weight: 600;
   letter-spacing: 0.6px;
   margin-bottom: 15px;
+  margin-top: 25px;
 }
 
 .description {
@@ -104,4 +116,5 @@
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0.6px;
+  height: auto;
 }
