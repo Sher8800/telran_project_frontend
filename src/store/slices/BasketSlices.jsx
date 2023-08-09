@@ -10,7 +10,6 @@ const basketSlice = createSlice({
   reducers: {
     addProduct: (state, action) => {
       state.basket.push(action.payload)
-      // console.log(action);
     },
 
     removeProduct: (state, action) => {

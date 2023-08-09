@@ -16,7 +16,11 @@ export default function All_products() {
 
   const [defaultProducts, setDefaultProducts] = useState(null);
 
-  const basketProduct = useSelector(state => state.basket)
+  const basketProductAll = useSelector(state => state.basket)
+  const basketProducts = basketProductAll.filter((el, idx) => basketProductAll.indexOf(el) === idx);
+
+  localStorage.setItem('basket', JSON.stringify(basketProducts))
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -38,6 +42,7 @@ export default function All_products() {
     // event.preventDefault()
     // event.stopPropagation()
     // console.log(product);
+    // localStorage.setItem('basket', JSON.stringify(dispatch(addProduct(product))))
     dispatch(addProduct(product))
   }
 

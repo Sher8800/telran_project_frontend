@@ -7,15 +7,31 @@ import plus from '../../assets/basket/plus.png';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from '../../globalVariables/GlobalVariables';
+import Button from '../../UI/button/Button';
+import { useState } from 'react';
 
 
 export default function BasketModule() {
 
-  const basketProduct = useSelector(state => state.basket)
-  const dispatch = useDispatch()
-  console.log(basketProduct);
+  // const basketProductAllStorage = useSelector(state => state.basket)
+  // localStorage.setItem('basket', JSON.stringify(basketProductAllStorage))
+  const productFromStorage = localStorage.getItem('basket')
+  const basketProducts = JSON.parse(productFromStorage)
+  // const dispatch = useDispatch()
 
+  let productQuantity = null;
 
+  // const basketProducts = basketProductAll.filter((el, idx) => basketProductAll.indexOf(el) === idx);
+  // console.log(basketProducts);
+  // console.log(productQuantity);
+  // console.log(basketProductAll);
+
+  // const [amount, setAmount] = useState([]);
+
+  const amount = basketProducts.map(product => product.price)
+
+  let total = amount.reduce((total, value) => total + value, 0)
+  // console.log(totalPrice);
 
   return (
     <div className={styles.basket_container}>
@@ -23,7 +39,7 @@ export default function BasketModule() {
 
         <p className={styles.text_title}>Shopping cart</p>
 
-        <Link className={styles.link_back}>
+        <Link to={'/categories'} className={styles.link_back}>
           <span className={styles.link_text}>Back to the store</span>
           <img className={styles.img_forward} src={forward} alt="icon" />
         </Link>
@@ -33,9 +49,9 @@ export default function BasketModule() {
       <div className={styles.product_order_container}>
 
         <div className={styles.products_container}>
-          {basketProduct.map((product) => (
-            // console.log(product);
-            <div className={styles.product_container}>
+
+          {basketProducts.map((product) => (
+            <div key={product.id} className={styles.product_container}>
               <img className={styles.img_product} src={API_URL + product.image} alt="product" />
 
               <div className={styles.product_data_container}>
@@ -43,16 +59,19 @@ export default function BasketModule() {
                 <p className={styles.description}>{product.title}</p>
 
                 <div className={styles.btn_quantity_container}>
-                  <button className={styles.btn_decriment}></button>
+                  <Button className={styles.btn_decriment} />
                   <p className={styles.quantity}>1</p>
-                  <button className={styles.btn_incriment}><img src={plus} alt="incriment" /></button>
+                  <Button className={styles.btn_incriment} buttonText={<img src={plus} alt="incriment" />} />
                 </div>
 
               </div>
 
               <div className={styles.product_price_container}>
-                <p className={styles.new_price}>223<span className={styles.new_dollar}>$</span></p>
-                <p className={styles.old_price}>432<span className={styles.old_dollar}>$</span></p>
+                <p className={styles.new_price}>{product.price}<span className={styles.new_dollar}>$</span></p>
+                {product.discont_price ?
+                  <p className={styles.old_price}>{Math.ceil(product.price / (1 - (product.discont_price / 100)))}<span className={styles.old_dollar}>$</span></p>
+                  : ''
+                }
               </div>
 
               <img className={styles.img_delete} src={imgDelete} alt='icon' />
@@ -67,7 +86,7 @@ export default function BasketModule() {
 
           <div className={styles.total_price_container}>
             <p className={styles.total}>Total</p>
-            <p className={styles.total_price}>3454<span className={styles.order_dollar}>$</span></p>
+            <p className={styles.total_price}>{total}<span className={styles.order_dollar}>$</span></p>
           </div>
 
           <div className={styles.btn_registration_container}>

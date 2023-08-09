@@ -115,6 +115,7 @@
 .btn_add:hover {
   opacity: 1;
   transition: all 400ms;
+  cursor: pointer;
 }
 
 
