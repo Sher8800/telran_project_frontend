@@ -3,88 +3,38 @@ import styles from './all_products.module.css'
 import ViewProducts from './viewProducts/ViewProducts';
 import SortProducts from './sortProducts/SortProducts';
 import FilterProducts from './filterProducts/FilterProducts';
-import { API_URL } from '../../../globalVariables/GlobalVariables';
 import { useSelector, useDispatch } from 'react-redux'
-import { basketSelector, addProduct, removeProduct } from '../../../store/slices/BasketSlices';
+import { setProducts } from '../../../store/slices/ProductsSlices'
+import { addProduct, removeProduct } from '../../../store/slices/BasketSlices';
 import { ProductService } from '../../../services/product.service';
-
+import { useSort } from '../../../hooks/useSort';
+import { useFilterByPrice } from '../../../hooks/useFilterByPrice';
 
 export default function All_products() {
 
+  const allProducts = useSelector(state => state.products.products)
 
-  const [allProducts, setAllProducts] = useState([])
+  const { filterByMax, filterByMin, filteredList, priceFrom, priceTo } = useFilterByPrice(allProducts)
 
-  const [defaultProducts, setDefaultProducts] = useState(null);
-
-  const basketProductAll = useSelector(state => state.basket)
-  const basketProducts = basketProductAll.filter((el, idx) => basketProductAll.indexOf(el) === idx);
-
-  localStorage.setItem('basket', JSON.stringify(basketProducts))
+  const { onSort, sortedList, sortMode } = useSort(filteredList, 'price')
 
   const dispatch = useDispatch()
+
+  const basketProductAll = useSelector(state => state.basketProducts.basket)
+  const basketProducts = basketProductAll.filter((el, idx) => basketProductAll.indexOf(el) === idx);
+  localStorage.setItem('basket', JSON.stringify(basketProducts))
 
   useEffect(() => {
     const getProducts = async () => {
       const products = await ProductService.getProducts()
-      setDefaultProducts(products);
-      setAllProducts(products)
+      dispatch(setProducts(products))
     }
     getProducts()
-    // fetch(URL)
-    //   .then(response => response.json())
-    //   .then(products => {
-    //     setDefaultProducts([...products]);
-    //     setAllProducts([...products])
-    //   });
   }, [])
 
   const addProductInBasket = (product) => {
-    // event.preventDefault()
-    // event.stopPropagation()
-    // console.log(product);
-    // localStorage.setItem('basket', JSON.stringify(dispatch(addProduct(product))))
     dispatch(addProduct(product))
   }
-
-
-  const sortProducts = (event) => {
-
-    switch (event.target.value) {
-
-      case 'highter':
-        allProducts.sort((a, b) => {
-          return b.price - a.price
-        })
-        setAllProducts([...allProducts])
-        break;
-
-      case 'lower':
-        allProducts.sort((a, b) => {
-          return a.price - b.price
-        })
-        setAllProducts([...allProducts])
-        break;
-
-      default:
-        setAllProducts([...defaultProducts])
-        break;
-    }
-  }
-
-  const filterProductsByMin = (priceFrom) => {
-    const filteredProducts = defaultProducts.filter((product) => {
-      return product.price > priceFrom
-    })
-    setAllProducts([...filteredProducts])
-  }
-
-  const filterProductsByMax = (priceTo) => {
-    if (priceTo) {
-      const filteredProducts = allProducts.filter((product) => { return product.price < priceTo });
-      setTimeout(() => { setAllProducts([...filteredProducts]) }, 1500)
-    }
-  }
-
 
   return (
     <div className={styles.tools_container}>
@@ -92,7 +42,7 @@ export default function All_products() {
 
       <div className={styles.form_container}>
 
-        <FilterProducts filterProductsByMin={filterProductsByMin} filterProductsByMax={filterProductsByMax} />
+        <FilterProducts priceFrom={priceFrom} priceTo={priceTo} filterProductsByMin={filterByMin} filterProductsByMax={filterByMax} />
 
         <div className={styles.discount_container}>
           <span className={styles.text}>Discounted items</span>
@@ -104,14 +54,14 @@ export default function All_products() {
         <div className={styles.sort_container}>
           <span className={styles.text}>Sorted</span>
           <span>
-            <SortProducts sortProducts={sortProducts} />
+            <SortProducts sortProducts={onSort} sortMode={sortMode} />
           </span>
         </div>
 
       </div>
 
       <div className={styles.products_container}>
-        <ViewProducts addProduct={addProductInBasket} allProducts={allProducts} />
+        <ViewProducts addProduct={addProductInBasket} allProducts={sortedList} />
       </div>
     </div>
   )

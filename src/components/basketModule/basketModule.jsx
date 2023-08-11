@@ -13,25 +13,12 @@ import { useState } from 'react';
 
 export default function BasketModule() {
 
-  // const basketProductAllStorage = useSelector(state => state.basket)
-  // localStorage.setItem('basket', JSON.stringify(basketProductAllStorage))
   const productFromStorage = localStorage.getItem('basket')
   const basketProducts = JSON.parse(productFromStorage)
-  // const dispatch = useDispatch()
-
-  let productQuantity = null;
-
-  // const basketProducts = basketProductAll.filter((el, idx) => basketProductAll.indexOf(el) === idx);
-  // console.log(basketProducts);
-  // console.log(productQuantity);
-  // console.log(basketProductAll);
-
-  // const [amount, setAmount] = useState([]);
 
   const amount = basketProducts.map(product => product.price)
 
   let total = amount.reduce((total, value) => total + value, 0)
-  // console.log(totalPrice);
 
   return (
     <div className={styles.basket_container}>
