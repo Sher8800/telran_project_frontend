@@ -7,7 +7,7 @@ import CategoriesModule from './components/categoriesModule/CategoriesModule';
 import ProductsInCategories from './components/productsInCategoriesModule/productsInCategories/ProductsInCategories';
 import All_products from './components/productsInCategoriesModule/all_products/All_products';
 import Products_with_sale from './components/productsInCategoriesModule/products_with_sale/Products_with_sale';
-import ProductsModule from './components/productsModule/productsModule';
+import ProductsModule from './components/productModule/ProductModule';
 import BasketModule from './components/basketModule/basketModule';
 // import { Context } from './context';
 

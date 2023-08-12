@@ -12,7 +12,7 @@ export default function ViewProducts({ allProducts, addProduct }) {
       {allProducts.map((product) => (
 
         <div key={product.id} className={styles.product_container}>
-          <NavLink to={'/product'} state={{ id: product.id, title: product.title }} className={styles.container_img_btn}>
+          <NavLink to={'/product'} state={{ id: product.id, title: product.title }} >
             <img className={styles.img_product} src={API_URL + product.image} alt="product" />
           </NavLink>
           <Button className={styles.btn_add} onClick={() => addProduct(product)} buttonText={'Add to cart'} />

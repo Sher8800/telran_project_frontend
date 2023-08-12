@@ -4,11 +4,17 @@ import { API_URL } from '../../../globalVariables/GlobalVariables'
 import FilterProducts from '../all_products/filterProducts/FilterProducts';
 import SortProducts from '../all_products/sortProducts/SortProducts';
 import { useLocation } from "react-router";
+import { useFilterByPrice } from '../../../hooks/useFilterByPrice';
+import { useSort } from '../../../hooks/useSort';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProduct } from '../../../store/slices/BasketSlices';
+import { NavLink } from 'react-router-dom';
+import Button from '../../../UI/button/Button';
 
 export default function ProductsInCategories() {
 
   const [categorieProducts, setCategorieProducts] = useState([])
-  const [defaultProducts, setDefaultProducts] = useState([]);
+  // const [defaultProducts, setDefaultProducts] = useState([]);
 
   const location = useLocation();
   const { state } = location;
@@ -18,46 +24,61 @@ export default function ProductsInCategories() {
   useEffect(() => {
     fetch(URL)
       .then(response => response.json())
-      .then(products => { setCategorieProducts([...products.data]); setDefaultProducts([...products.data]) });
+      .then(products => { setCategorieProducts([...products.data]) });
   }, [])
 
-  const sortProducts = (event) => {
+  const { filterByMax, filterByMin, filteredList, priceFrom, priceTo } = useFilterByPrice(categorieProducts)
 
-    switch (event.target.value) {
+  const { onSort, sortedList, sortMode } = useSort(filteredList, 'price')
 
-      case 'highter':
-        categorieProducts.sort((a, b) => {
-          return b.price - a.price
-        })
-        setCategorieProducts([...categorieProducts])
-        break;
+  const basketProductAll = useSelector(state => state.basketProducts.basket)
 
-      case 'lower':
-        categorieProducts.sort((a, b) => {
-          return a.price - b.price
-        })
-        setCategorieProducts([...categorieProducts])
-        break;
+  const basketProducts = basketProductAll.filter((el, idx) => basketProductAll.indexOf(el) === idx);
+  localStorage.setItem('basket', JSON.stringify(basketProducts))
 
-      default:
-        setCategorieProducts([...defaultProducts])
-        break;
-    }
+  const dispatch = useDispatch()
+
+  const addProductInBasket = (product) => {
+    dispatch(addProduct(product))
   }
 
-  const filterProductsByMin = (priceFrom) => {
-    const filteredProducts = defaultProducts.filter((product) => {
-      return product.price > priceFrom
-    })
-    setCategorieProducts([...filteredProducts])
-  }
+  // const sortProducts = (event) => {
 
-  const filterProductsByMax = (priceTo) => {
-    const filteredProducts = defaultProducts.filter((product) => {
-      return product.price < priceTo
-    })
-    setCategorieProducts([...filteredProducts])
-  }
+  //   switch (event.target.value) {
+
+  //     case 'highter':
+  //       categorieProducts.sort((a, b) => {
+  //         return b.price - a.price
+  //       })
+  //       setCategorieProducts([...categorieProducts])
+  //       break;
+
+  //     case 'lower':
+  //       categorieProducts.sort((a, b) => {
+  //         return a.price - b.price
+  //       })
+  //       setCategorieProducts([...categorieProducts])
+  //       break;
+
+  //     default:
+  //       setCategorieProducts([...defaultProducts])
+  //       break;
+  //   }
+  // }
+
+  // const filterProductsByMin = (priceFrom) => {
+  //   const filteredProducts = defaultProducts.filter((product) => {
+  //     return product.price > priceFrom
+  //   })
+  //   setCategorieProducts([...filteredProducts])
+  // }
+
+  // const filterProductsByMax = (priceTo) => {
+  //   const filteredProducts = defaultProducts.filter((product) => {
+  //     return product.price < priceTo
+  //   })
+  //   setCategorieProducts([...filteredProducts])
+  // }
 
 
   return (
@@ -66,7 +87,7 @@ export default function ProductsInCategories() {
 
       <div className={styles.form_container}>
 
-        <FilterProducts filterProductsByMin={filterProductsByMin} filterProductsByMax={filterProductsByMax} />
+        <FilterProducts priceFrom={priceFrom} priceTo={priceTo} filterByMin={filterByMin} filterByMax={filterByMax} />
 
         <div className={styles.discount_container}>
           <span className={styles.text}>Discounted items</span>
@@ -78,7 +99,7 @@ export default function ProductsInCategories() {
         <div className={styles.sort_container}>
           <span className={styles.text}>Sorted</span>
           <span>
-            <SortProducts sortProducts={sortProducts} />
+            <SortProducts sortProducts={onSort} sortMode={sortMode} />
           </span>
         </div>
 
@@ -86,9 +107,12 @@ export default function ProductsInCategories() {
 
       <div className={styles.products_container}>
 
-        {categorieProducts.map((product) => {
+        {sortedList.map((product) => {
           return <div className={styles.product_container} key={product.id}>
-            <img className={styles.img_product} src={API_URL + product.image} alt="product" />
+            <NavLink to={'/product'} state={{ id: product.id, title: product.title }}>
+              <img className={styles.img_product} src={API_URL + product.image} alt="product" />
+            </NavLink>
+            <Button className={styles.btn_add} onClick={() => addProductInBasket(product)} buttonText={'Add to cart'} />
             <div className={styles.product_description}>
               <div className={styles.container_price}>
                 <p className={styles.new_price}>{product.price}<span className={styles.price_dollar}>$</span></p>

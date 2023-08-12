@@ -21,6 +21,7 @@ export default function All_products() {
   const dispatch = useDispatch()
 
   const basketProductAll = useSelector(state => state.basketProducts.basket)
+
   const basketProducts = basketProductAll.filter((el, idx) => basketProductAll.indexOf(el) === idx);
   localStorage.setItem('basket', JSON.stringify(basketProducts))
 
@@ -42,7 +43,7 @@ export default function All_products() {
 
       <div className={styles.form_container}>
 
-        <FilterProducts priceFrom={priceFrom} priceTo={priceTo} filterProductsByMin={filterByMin} filterProductsByMax={filterByMax} />
+        <FilterProducts priceFrom={priceFrom} priceTo={priceTo} filterByMin={filterByMin} filterByMax={filterByMax} />
 
         <div className={styles.discount_container}>
           <span className={styles.text}>Discounted items</span>
