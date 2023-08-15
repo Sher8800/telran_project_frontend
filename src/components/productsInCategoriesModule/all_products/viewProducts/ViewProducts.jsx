@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from '../all_products.module.css'
-import { API_URL } from '../../../../globalVariables/GlobalVariables'
+import styles from '../All_products.module.css'
+import { API_URL } from '../../../../config/api'
 import { NavLink } from 'react-router-dom'
-import Button from '../../../../UI/button'
+import Button from '../../../../UI/button/pathButton'
 
 
 export default function ViewProducts({ allProducts, addProduct }) {

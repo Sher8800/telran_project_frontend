@@ -17,6 +17,7 @@ export const useFilterByPrice = (list) => {
   useLayoutEffect(() => {
     let minPrice = +priceFrom || 0;
     let maxPrice = +priceTo || Infinity;
+
     if (minPrice > maxPrice) {
       maxPrice = Infinity
     }

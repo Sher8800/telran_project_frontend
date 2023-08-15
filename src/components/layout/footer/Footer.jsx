@@ -1,11 +1,9 @@
 import React from 'react'
-import styles from './footer.module.css'
-import instagram from '../../assets/footer/instagram.png'
-import whatsApp from '../../assets/footer/whatsapp.png'
-import google_map from '../../assets/footer/google_map.png'
+import styles from './Footer.module.css'
+import instagram from '../../../assets/footer/instagram.png'
+import whatsApp from '../../../assets/footer/whatsapp.png'
 
-
-export default function GoogleMap() {
+export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container_info}>
@@ -36,7 +34,6 @@ export default function GoogleMap() {
       </div>
 
       <div className={styles.img_google_map}>
-        {/* <img src={google_map} alt='icon google map' /> */}
       </div>
 
     </footer>

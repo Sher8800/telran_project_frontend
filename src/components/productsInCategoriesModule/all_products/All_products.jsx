@@ -1,29 +1,33 @@
-import React, { useEffect, useState } from 'react'
-import styles from './all_products.module.css'
+import React, { useEffect } from 'react'
+import styles from './All_products.module.css'
 import ViewProducts from './viewProducts/ViewProducts';
 import SortProducts from './sortProducts/SortProducts';
 import FilterProducts from './filterProducts/FilterProducts';
 import { useSelector, useDispatch } from 'react-redux'
 import { setProducts } from '../../../store/slices/ProductsSlices'
-import { addProduct, removeProduct } from '../../../store/slices/BasketSlices';
+import { addProduct } from '../../../store/slices/BasketSlices';
 import { ProductService } from '../../../services/product.service';
 import { useSort } from '../../../hooks/useSort';
 import { useFilterByPrice } from '../../../hooks/useFilterByPrice';
+import CheckBox from '../../../UI/checkBox/CheckBox';
+import { useFilter } from '../../../hooks/useFilter';
 
 export default function All_products() {
 
+  const dispatch = useDispatch()
+
   const allProducts = useSelector(state => state.products.products)
 
-  const { filterByMax, filterByMin, filteredList, priceFrom, priceTo } = useFilterByPrice(allProducts)
+  const {
+    filterValue,
+    filteredList: filteredListByDiscount,
+    onFilter } = useFilter(allProducts, 'discont_price')
+
+  const { filterByMax, filterByMin, filteredList, priceFrom, priceTo } = useFilterByPrice(filteredListByDiscount)
 
   const { onSort, sortedList, sortMode } = useSort(filteredList, 'price')
 
-  const dispatch = useDispatch()
-
-  const basketProductAll = useSelector(state => state.basketProducts.basket)
-
-  const basketProducts = basketProductAll.filter((el, idx) => basketProductAll.indexOf(el) === idx);
-  localStorage.setItem('basket', JSON.stringify(basketProducts))
+  // const basketProducts = basketProductAll.filter((el, idx) => basketProductAll.indexOf(el) === idx);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -46,10 +50,10 @@ export default function All_products() {
         <FilterProducts priceFrom={priceFrom} priceTo={priceTo} filterByMin={filterByMin} filterByMax={filterByMax} />
 
         <div className={styles.discount_container}>
+
           <span className={styles.text}>Discounted items</span>
-          <span>
-            <input type='checkbox' className={styles.discount_checkbox}></input>
-          </span>
+          <CheckBox type='checkbox' checked={filterValue} onChange={onFilter} />
+
         </div>
 
         <div className={styles.sort_container}>

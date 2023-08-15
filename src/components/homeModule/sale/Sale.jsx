@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './sale.module.css'
+import styles from './Sale.module.css'
 
 
 export default function Sale() {

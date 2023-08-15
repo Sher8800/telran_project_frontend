@@ -18,6 +18,8 @@ const basketSlice = createSlice({
   }
 })
 
+export const basketSelector = state => state.basketProducts
+
 
 export const { addProduct, removeProduct } = basketSlice.actions;
 

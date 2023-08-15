@@ -1,14 +1,14 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Header from '../../shared/header/Header'
-import GoogleMap from '../../shared/footer/GoogleMap'
+import Header from './header/Header'
+import Footer from './footer/Footer'
 
 const Layout = () => {
   return (
     <>
       <Header />
       <Outlet />
-      <GoogleMap />
+      <Footer />
     </>
   )
 }

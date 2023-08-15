@@ -25,17 +25,10 @@
 }
 
 .discount_container {
-  width: 350px;
+  width: 300px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.discount_checkbox {
-  width: 40px;
-  height: 40px;
-  border-radius: 17px;
-  border: 1px solid #000;
 }
 
 .sort_container {

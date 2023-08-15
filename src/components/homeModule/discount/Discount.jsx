@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './discount.module.css'
+import styles from './Discount.module.css'
 
 export default function Discount() {
   return (

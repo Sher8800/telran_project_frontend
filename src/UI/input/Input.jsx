@@ -1,9 +1,8 @@
 import React from 'react'
+import classNames from 'classnames'
 
-export default function Input({ className, onChange, placeholder }) {
+export default function Input({ className, ...props }) {
     return (
-        <>
-            <input className={className} onChange={onChange} placeholder={placeholder} type="text" />
-        </>
+        <input {...props} type="text" className={classNames({ [className]: className })} />
     )
 }

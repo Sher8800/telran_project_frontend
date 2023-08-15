@@ -1,24 +1,22 @@
 import React from 'react';
-import styles from './basket.module.css';
-import imgProduct from '../../assets/basket/curb_tape.png';
+import styles from './Basket.module.css';
 import imgDelete from '../../assets/basket/delete.png';
 import forward from '../../assets/basket/icon-forward.png';
 import plus from '../../assets/basket/plus.png';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { API_URL } from '../../globalVariables/GlobalVariables';
+import { useSelector } from 'react-redux';
+import { API_URL } from '../../config/api';
 import Button from '../../UI/button/Button';
-import { useState } from 'react';
+import { basketSelector } from '../../store/slices/BasketSlices';
 
 
 export default function BasketModule() {
 
-  const productFromStorage = localStorage.getItem('basket')
-  const basketProducts = JSON.parse(productFromStorage)
+  const { basket: basketProducts } = useSelector(basketSelector)
 
   const amount = basketProducts.map(product => product.price)
 
-  let total = amount.reduce((total, value) => total + value, 0)
+  let order = amount.reduce((total, value) => total + value, 0)
 
   return (
     <div className={styles.basket_container}>
@@ -73,7 +71,7 @@ export default function BasketModule() {
 
           <div className={styles.total_price_container}>
             <p className={styles.total}>Total</p>
-            <p className={styles.total_price}>{total}<span className={styles.order_dollar}>$</span></p>
+            <p className={styles.total_price}>{order}<span className={styles.order_dollar}>$</span></p>
           </div>
 
           <div className={styles.btn_registration_container}>

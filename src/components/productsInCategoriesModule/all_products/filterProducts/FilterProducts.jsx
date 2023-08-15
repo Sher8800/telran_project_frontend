@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import styles from '../all_products.module.css'
+import styles from '../All_products.module.css'
 import ProductsModule from '../../../productModule/ProductModule'
 
 

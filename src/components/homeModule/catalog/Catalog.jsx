@@ -1,20 +1,22 @@
 import React, { useState } from 'react'
-import styles from './catalog.module.css'
-import { API_URL } from '../../../globalVariables/GlobalVariables'
+import styles from './Catalog.module.css'
+import { API_URL } from '../../../config/api'
 import { useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { ProductService } from '../../../services/product.service'
 
 export default function Catalog() {
-
-  const URL = `${API_URL}categories/all`
 
   const [allCotegories, setAllCotegories] = useState([])
 
   useEffect(() => {
-    fetch(URL)
-      .then(response => response.json())
-      .then(cotegories => setAllCotegories([...cotegories]))
+    const getProducts = async () => {
+      const products = await ProductService.getCategories()
+      setAllCotegories(products)
+    }
+    getProducts()
   }, [])
+
   return (
     <div className={styles.container}>
 

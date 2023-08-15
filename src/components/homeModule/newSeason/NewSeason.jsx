@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './newSeason.module.css'
+import styles from './NewSeason.module.css'
 import { Link } from 'react-router-dom'
 
 

@@ -47,9 +47,7 @@ header {
   text-decoration: none;
 }
 
-.link_main,
-.link_products,
-.link_sales {
+.link {
   color: #000;
   font-size: 16px;
   font-weight: 500;

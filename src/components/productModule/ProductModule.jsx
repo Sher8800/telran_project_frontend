@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import styles from './productsModule.module.css'
+import styles from './ProductsModule.module.css'
 import { useLocation } from "react-router";
-import { API_URL } from '../../globalVariables/GlobalVariables';
+import { API_URL } from '../../config/api';
+import { ProductService } from '../../services/product.service';
 
 export default function ProductsModule() {
   const [cart, setCart] = useState([])
@@ -9,12 +10,12 @@ export default function ProductsModule() {
   const location = useLocation()
   const { state } = location;
 
-  const URL = `${API_URL}products/${state.id}`
-
   useEffect(() => {
-    fetch(URL)
-      .then(response => response.json())
-      .then(product => setCart(product));
+    const getProduct = async () => {
+      const products = await ProductService.getProduct(state.id)
+      setCart(products)
+    }
+    getProduct()
   }, [])
 
   return (

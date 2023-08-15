@@ -1,9 +1,23 @@
 import React from 'react'
-import logo from '../../assets/header/logo.png'
-import cart from '../../assets/header/shopping-bag.png'
-import styles from './header.module.css'
+import logo from '../../../assets/header/logo.png'
+import cart from '../../../assets/header/shopping-bag.png'
+import styles from './Header.module.css'
 import { Link } from 'react-router-dom'
 
+const links = [
+    {
+        label: 'Main Page',
+        link: '/'
+    },
+    {
+        label: 'All products',
+        link: '/allProducts'
+    },
+    {
+        label: 'All sales',
+        link: '/allSales'
+    }
+]
 export default function Header() {
     return (
         <header>
@@ -15,9 +29,9 @@ export default function Header() {
                 </div>
                 <div className={styles.container_linksCart}>
                     <div className={styles.container_links}>
-                        <Link className={styles.link_main} to="">Main Page</Link>
-                        <Link className={styles.link_products} to="/allProducts">All products</Link>
-                        <Link className={styles.link_sales} to="/allSales">All sales</Link>
+                        {links.map(({ label, link }) => (
+                            <Link key={link} className={styles.link} to={link}>{label}</Link>
+                        ))}
                     </div>
                     <Link to={"/cart"}>
                         <img className={styles.icon_cart} src={cart} alt="Cart" />

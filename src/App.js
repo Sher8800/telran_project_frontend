@@ -1,20 +1,18 @@
 import './App.css';
-import HomeModule from './components/homeModule/homeModule';
+import HomeModule from './components/homeModule/HomeModule';
 import { Layout } from './components/layout/Layout';
 import { Routes, Route } from 'react-router-dom'
-import NotFound from './shared/notFound/NotFound';
+import NotFound from './UI/notFound/NotFound';
 import CategoriesModule from './components/categoriesModule/CategoriesModule';
 import ProductsInCategories from './components/productsInCategoriesModule/productsInCategories/ProductsInCategories';
 import All_products from './components/productsInCategoriesModule/all_products/All_products';
 import Products_with_sale from './components/productsInCategoriesModule/products_with_sale/Products_with_sale';
 import ProductsModule from './components/productModule/ProductModule';
-import BasketModule from './components/basketModule/basketModule';
-// import { Context } from './context';
+import BasketModule from './components/basketModule/BasketModule';
 
 
 function App() {
   return (
-    // <Context.Provider value={{}}>
     <div className="App">
       <Routes>
         <Route path='/' element={<Layout />} >
@@ -31,7 +29,6 @@ function App() {
         </Route>
       </Routes>
     </div >
-    // </Context.Provider>
   );
 }
 

@@ -3,20 +3,17 @@ import styles from './products_with_sale.module.css'
 import SortProducts from '../all_products/sortProducts/SortProducts';
 import FilterProducts from '../all_products/filterProducts/FilterProducts';
 import { useLocation } from 'react-router-dom';
-import { API_URL } from '../../../globalVariables/GlobalVariables';
+import { API_URL } from '../../../config/api';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFilterByPrice } from '../../../hooks/useFilterByPrice';
 import { useSort } from '../../../hooks/useSort';
-import { addProduct, removeProduct } from '../../../store/slices/BasketSlices';
+import { addProduct } from '../../../store/slices/BasketSlices';
 import { setProducts } from '../../../store/slices/ProductsSlices';
 import { NavLink } from 'react-router-dom'
 import { ProductService } from '../../../services/product.service';
-import Button from '../../../UI/button'
+import Button from '../../../UI/button/pathButton'
 
 export default function Products_with_sale() {
-
-  // const URL = `${API_URL}products/all`
-
 
   const allProducts = useSelector(state => state.products.products)
 
@@ -38,58 +35,12 @@ export default function Products_with_sale() {
 
   const { onSort, sortedList, sortMode } = useSort(filteredList, 'price')
 
-  const basketProductAll = useSelector(state => state.basketProducts.basket)
-
-  const basketProducts = basketProductAll.filter((el, idx) => basketProductAll.indexOf(el) === idx);
-  localStorage.setItem('basket', JSON.stringify(basketProducts))
-
   const addProductInBasket = (product) => {
     dispatch(addProduct(product))
   }
 
-  // const [allProducts, setAllProducts] = useState([]);
-  // const [defaultProducts, setDefaultProducts] = useState([]);
-
   const location = useLocation;
   const { state } = location;
-
-  // const sortProducts = (event) => {
-
-  //   switch (event.target.value) {
-
-  //     case 'highter':
-  //       allProducts.sort((a, b) => {
-  //         return b.price - a.price
-  //       })
-  //       setAllProducts([...allProducts])
-  //       break;
-
-  //     case 'lower':
-  //       allProducts.sort((a, b) => {
-  //         return a.price - b.price
-  //       })
-  //       setAllProducts([...allProducts])
-  //       break;
-
-  //     default:
-  //       setAllProducts([...defaultProducts])
-  //       break;
-  //   }
-  // }
-
-  // const filterProductsByMin = (priceFrom) => {
-  //   const filteredProducts = defaultProducts.filter((product) => {
-  //     return product.price > priceFrom
-  //   })
-  //   setAllProducts([...filteredProducts])
-  // }
-
-  // const filterProductsByMax = (priceTo) => {
-  //   const filteredProducts = defaultProducts.filter((product) => {
-  //     return product.price < priceTo
-  //   })
-  //   setAllProducts([...filteredProducts])
-  // }
 
   return (
     <div className={styles.tools_container}>
