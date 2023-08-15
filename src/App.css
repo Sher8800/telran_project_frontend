@@ -6,3 +6,8 @@
   font-style: normal;
   line-height: 130%;
 }
+
+.App {
+  display: grid;
+  row-gap: 20px;
+}

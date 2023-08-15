@@ -1,15 +1,19 @@
 header {
-  height: 72px;
+  height: 70px;
 }
 
 .headContainer {
   position: fixed;
+  top: 0;
+  z-index: 2;
+
+
+  position: fixed;
   width: 100vw;
   display: flex;
   justify-content: space-between;
-  padding: 19px 40px 19px 28px;
+  padding: 10px 40px 10px 28px;
   background-color: #FFF;
-  z-index: 2;
 }
 
 .container_logoCatalog,
@@ -20,11 +24,11 @@ header {
 }
 
 .container_logoCatalog {
-  min-width: 300px;
+  min-width: 20vw;
 }
 
 .container_linksCart {
-  min-width: 500px;
+  min-width: 30vw;
 }
 
 .icon_logo {

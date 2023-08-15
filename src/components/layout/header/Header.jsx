@@ -1,13 +1,13 @@
 import React from 'react'
-import logo from '../../../assets/header/logo.png'
-import cart from '../../../assets/header/shopping-bag.png'
+import logo from '../../../assets/header/logo.svg'
+import cart from '../../../assets/header/cart.svg'
 import styles from './Header.module.css'
 import { Link } from 'react-router-dom'
 
 const links = [
     {
         label: 'Main Page',
-        link: '/'
+        link: ''
     },
     {
         label: 'All products',
@@ -24,7 +24,9 @@ export default function Header() {
             <div className={styles.headContainer}>
 
                 <div className={styles.container_logoCatalog}>
-                    <img className={styles.icon_logo} src={logo} alt="Logo" />
+                    <Link to="">
+                        <img className={styles.icon_logo} src={logo} alt="Logo" />
+                    </Link>
                     <Link to="/categories" className={styles.btn_catalog} >Catalog</Link>
                 </div>
                 <div className={styles.container_linksCart}>

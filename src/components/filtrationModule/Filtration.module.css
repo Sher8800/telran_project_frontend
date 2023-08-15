@@ -1,0 +1,57 @@
+.price_container {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text {
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+}
+
+.price_input {
+  width: 103px;
+  height: 42px;
+  border-radius: 7px;
+  border: 1px solid #000;
+  padding: 0 10px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.48px;
+}
+
+.sort_container {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sort_select {
+  width: 219px;
+  height: 40px;
+  border-radius: 7px;
+  border: 1px solid #000;
+  align-content: center;
+  color: #797979;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.48px;
+}
+
+.checkbox {
+  width: 40px;
+  height: 40px;
+  border-radius: 17px;
+  border: 1px solid #000;
+}
+
+.discount_container {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

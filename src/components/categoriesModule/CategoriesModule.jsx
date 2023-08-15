@@ -18,7 +18,7 @@ export default function CategoriesModule() {
 
   return (
     <div className={styles.cotainer_categories}>
-      <p className={styles.heading_text}>Categories</p>
+      <p className={styles.page_title}>Categories</p>
       <div className={styles.categories}>
         {allCategories.map((product) => {
           return <NavLink to={'/productsInCategories'} state={{ id: product.id, title: product.title }} key={product.id} className={styles.container_img}>

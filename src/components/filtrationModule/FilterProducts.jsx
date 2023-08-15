@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import styles from '../All_products.module.css'
-import ProductsModule from '../../../productModule/ProductModule'
+import styles from './Filtration.module.css'
+import ProductsModule from '../productModule/ProductModule'
 
 
 export default function FilterProducts({ filterByMin, filterByMax, priceFrom, priceTo }) {

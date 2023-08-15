@@ -1,8 +1,7 @@
 import React, { useMemo, useEffect } from 'react'
-import styles from './products_with_sale.module.css'
-import SortProducts from '../all_products/sortProducts/SortProducts';
-import FilterProducts from '../all_products/filterProducts/FilterProducts';
-import { useLocation } from 'react-router-dom';
+import styles from '../stylesModule/Products.module.css'
+import SortProducts from '../../filtrationModule/SortProducts';
+import FilterProducts from '../../filtrationModule/FilterProducts';
 import { API_URL } from '../../../config/api';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFilterByPrice } from '../../../hooks/useFilterByPrice';
@@ -12,6 +11,7 @@ import { setProducts } from '../../../store/slices/ProductsSlices';
 import { NavLink } from 'react-router-dom'
 import { ProductService } from '../../../services/product.service';
 import Button from '../../../UI/button/pathButton'
+import ProductData from '../productData/ProductData';
 
 export default function Products_with_sale() {
 
@@ -20,11 +20,11 @@ export default function Products_with_sale() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const getProducts = async () => {
-      const products = await ProductService.getProducts()
+    const getAllProducts = async () => {
+      const products = await ProductService.getAllProducts()
       dispatch(setProducts(products))
     }
-    getProducts()
+    getAllProducts()
   }, [])
 
   const productsWithSale = useMemo(() => {
@@ -39,24 +39,13 @@ export default function Products_with_sale() {
     dispatch(addProduct(product))
   }
 
-  const location = useLocation;
-  const { state } = location;
-
   return (
     <div className={styles.tools_container}>
-      <p className={styles.rubric}>Products with sale</p>
+      <p className={styles.page_title}>Products with sale</p>
 
-      <div className={styles.form_container}>
-
+      <div className={styles.form_container_sale}>
         <FilterProducts priceFrom={priceFrom} priceTo={priceTo} filterByMin={filterByMin} filterByMax={filterByMax} />
-
-        <div className={styles.sort_container}>
-          <span className={styles.text}>Sorted</span>
-          <span>
-            <SortProducts sortProducts={onSort} sortMode={sortMode} />
-          </span>
-        </div>
-
+        <SortProducts sortProducts={onSort} sortMode={sortMode} />
       </div>
 
       <div className={styles.products_container}>
@@ -67,14 +56,7 @@ export default function Products_with_sale() {
               <img className={styles.img_product} src={API_URL + product.image} alt="product" />
             </NavLink>
             <Button className={styles.btn_add} onClick={() => addProductInBasket(product)} buttonText={'Add to cart'} />
-            <div className={styles.product_description}>
-              <div className={styles.container_price}>
-                <p className={styles.new_price}>{product.price}<span className={styles.price_dollar}>$</span></p>
-                <p className={styles.old_price}>{Math.ceil(product.price / (1 - (product.discont_price / 100))) + '$'}</p>
-                <p className={styles.discount}>{product.discont_price + '%'}</p>
-              </div>
-              <p className={styles.name_product}>{product.title}</p>
-            </div>
+            <ProductData product={product} />
           </div>
         ))}
 

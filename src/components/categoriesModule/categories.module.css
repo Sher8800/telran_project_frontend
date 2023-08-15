@@ -1,13 +1,13 @@
 .cotainer_categories {
-  margin: 79px 32px 50px 32px;
+  margin: 40px 30px 0 30px;
 }
 
-.heading_text {
+.page_title {
   color: #000;
   font-size: 40px;
   font-weight: 700;
   letter-spacing: 1.2px;
-  margin-bottom: 81px;
+  margin-bottom: 60px;
 }
 
 .categories {
