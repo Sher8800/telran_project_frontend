@@ -4,7 +4,7 @@ import SortProducts from '../../filtrationModule/SortProducts';
 import FilterProducts from '../../filtrationModule/FilterProducts';
 import { useSelector, useDispatch } from 'react-redux'
 import { setProducts } from '../../../store/slices/ProductsSlices'
-import { addProduct } from '../../../store/slices/BasketSlices';
+import { addProduct, basketSelector } from '../../../store/slices/BasketSlices';
 import { ProductService } from '../../../services/product.service';
 import { useSort } from '../../../hooks/useSort';
 import { useFilterByPrice } from '../../../hooks/useFilterByPrice';
@@ -28,8 +28,6 @@ export default function All_products() {
   const { filterByMax, filterByMin, filteredList, priceFrom, priceTo } = useFilterByPrice(filteredListByDiscount)
 
   const { onSort, sortedList, sortMode } = useSort(filteredList, 'price')
-
-  // const basketProducts = basketProductAll.filter((el, idx) => basketProductAll.indexOf(el) === idx);
 
   useEffect(() => {
     const getAllProducts = async () => {
@@ -55,7 +53,7 @@ export default function All_products() {
 
       <div className={styles.products_container}>
 
-        {allProducts.map((product) => (
+        {sortedList.map((product) => (
           <div key={product.id} className={styles.product_container}>
             <NavLink to={'/product'} state={{ id: product.id, title: product.title }} >
               <img className={styles.img_product} src={API_URL + product.image} alt="product" />

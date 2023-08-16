@@ -3,23 +3,24 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   basket: []
 }
+console.log(initialState.basket);
 
 const basketSlice = createSlice({
   name: 'basketProducts',
   initialState: initialState,
   reducers: {
     addProduct: (state, action) => {
-      state.basket.push(action.payload)
+      const isUnique = state.basket.every(el => action.payload.id !== el.id);
+      isUnique && state.basket.push(action.payload);
     },
 
     removeProduct: (state, action) => {
-      state.basket = state.basket.filter(item => item.id !== action.payload)
+      state.basket = state.basket.filter(item => item.id !== action.payload.id)
     },
   }
 })
 
 export const basketSelector = state => state.basketProducts
-
 
 export const { addProduct, removeProduct } = basketSlice.actions;
 

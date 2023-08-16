@@ -4,10 +4,10 @@ import imgDelete from '../../assets/basket/delete.png';
 import forward from '../../assets/basket/icon-forward.png';
 import plus from '../../assets/basket/plus.png';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from '../../config/api';
 import Button from '../../UI/button/Button';
-import { basketSelector } from '../../store/slices/BasketSlices';
+import { basketSelector, removeProduct } from '../../store/slices/BasketSlices';
 
 
 export default function BasketModule() {
@@ -17,6 +17,12 @@ export default function BasketModule() {
   const amount = basketProducts.map(product => product.price)
 
   let order = amount.reduce((total, value) => total + value, 0)
+
+  const dispatch = useDispatch()
+
+  const removeProductInBasket = (product) => {
+    dispatch(removeProduct(product))
+  }
 
   return (
     <div className={styles.basket_container}>
@@ -35,8 +41,8 @@ export default function BasketModule() {
 
         <div className={styles.products_container}>
 
-          {basketProducts.map((product) => (
-            <div key={product.id} className={styles.product_container}>
+          {basketProducts.map((product, idx) => (
+            < div key={idx} className={styles.product_container} >
               <img className={styles.img_product} src={API_URL + product.image} alt="product" />
 
               <div className={styles.product_data_container}>
@@ -59,10 +65,11 @@ export default function BasketModule() {
                 }
               </div>
 
-              <img className={styles.img_delete} src={imgDelete} alt='icon' />
+              <img onClick={() => removeProductInBasket(product)} className={styles.img_delete} src={imgDelete} alt='icon' />
 
             </div>
-          ))}
+          )
+          )}
         </div>
 
         <div className={styles.registration_container}>

@@ -1,5 +1,5 @@
 import './App.css';
-import HomeModule from './components/homeModule/HomeModule';
+import HomeModule from './components/homeModule/mainModule/HomeModule';
 import { Layout } from './components/layout/Layout';
 import { Routes, Route } from 'react-router-dom'
 import NotFound from './UI/notFound/NotFound';
