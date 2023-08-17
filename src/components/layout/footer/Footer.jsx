@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Footer.module.css'
-import instagram from '../../../assets/footer/instagram.png'
-import whatsApp from '../../../assets/footer/whatsapp.png'
+import instagram from '../../../images/footer/instagram.png'
+import whatsApp from '../../../images/footer/whatsapp.png'
 
 export default function Footer() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
-import logo from '../../../assets/header/logo.svg'
-import cart from '../../../assets/header/cart.svg'
+import logo from '../../../images/header/logo.svg'
+import cart from '../../../images/header/cart.svg'
 import styles from './Header.module.css'
 import { Link } from 'react-router-dom'
 

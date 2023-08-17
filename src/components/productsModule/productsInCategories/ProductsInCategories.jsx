@@ -9,7 +9,7 @@ import { useSort } from '../../../hooks/useSort';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../../../store/slices/BasketSlices';
 import { NavLink } from 'react-router-dom';
-import Button from '../../../UI/button/Button';
+import Button from '../../UI/button/Button';
 import CheckBox from '../../filtrationModule/CheckBox';
 import { useFilter } from '../../../hooks/useFilter';
 import { ProductService } from '../../../services/product.service';

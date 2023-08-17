@@ -2,11 +2,11 @@ import './App.css';
 import HomeModule from './components/homeModule/mainModule/HomeModule';
 import { Layout } from './components/layout/Layout';
 import { Routes, Route } from 'react-router-dom'
-import NotFound from './UI/notFound/NotFound';
+import NotFound from './components/UI/notFound/NotFound';
 import CategoriesModule from './components/categoriesModule/CategoriesModule';
-import ProductsInCategories from './components/productsInCategoriesModule/productsInCategories/ProductsInCategories';
-import All_products from './components/productsInCategoriesModule/all_products/All_products';
-import Products_with_sale from './components/productsInCategoriesModule/products_with_sale/Products_with_sale';
+import ProductsInCategories from './components/productsModule/productsInCategories/ProductsInCategories';
+import AllProducts from './components/productsModule/allProducts/AllProducts';
+import ProductsWithSale from './components/productsModule/productsWithSale/ProductsWithSale';
 import ProductsModule from './components/productModule/ProductModule';
 import BasketModule from './components/basketModule/BasketModule';
 
@@ -18,11 +18,11 @@ function App() {
         <Route path='/' element={<Layout />} >
           <Route path='' element={<HomeModule />} />
           <Route path='categories' element={<CategoriesModule />} />
-          <Route path='allProducts' element={<All_products />} />
-          <Route path='allSales' element={<Products_with_sale />} />
+          <Route path='allProducts' element={<AllProducts />} />
+          <Route path='allSales' element={<ProductsWithSale />} />
           <Route path='spade' element={<ProductsModule />} />
           <Route path='cart' element={<BasketModule />} />
-          <Route path='sale' element={<Products_with_sale />} />
+          <Route path='sale' element={<ProductsWithSale />} />
           <Route path='productsInCategories' element={<ProductsInCategories />} />
           <Route path='product' element={<ProductsModule />} />
           <Route path='*' element={<NotFound />} />

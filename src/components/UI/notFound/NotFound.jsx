@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './NotFound.module.css'
+import styles from '../../../images/notFound/error404.png'
 
 export default function NotFound() {
   return (

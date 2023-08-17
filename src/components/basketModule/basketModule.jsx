@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './Basket.module.css';
-import imgDelete from '../../assets/basket/delete.png';
-import forward from '../../assets/basket/icon-forward.png';
-import plus from '../../assets/basket/plus.png';
+import imgDelete from '../../images/basket/delete.png';
+import forward from '../../images/basket/icon-forward.png';
+import plus from '../../images/basket/plus.png';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from '../../config/api';
-import Button from '../../UI/button/Button';
+import Button from '../UI/button/Button';
 import { basketSelector, removeProduct } from '../../store/slices/BasketSlices';
 
 

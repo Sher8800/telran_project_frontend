@@ -3,7 +3,7 @@ import styles from './Sale.module.css'
 import { ProductService } from '../../../services/product.service'
 import { NavLink } from 'react-router-dom'
 import { API_URL } from '../../../config/api'
-import Button from '../../../UI/button/Button'
+import Button from '../../UI/button/Button'
 import { addProduct } from '../../../store/slices/BasketSlices'
 import { useDispatch } from 'react-redux'
 

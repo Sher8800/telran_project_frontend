@@ -1,11 +1,6 @@
 import { useLayoutEffect, useState } from "react";
 
 const sortMap = {
-  // asc: (list, sortProp) =>
-  //   [...list].sort((a, b) => (a[sortProp] > b[sortProp] ? 1 : -1)),
-
-  // desc: (list, sortProp) =>
-  //   [...list].sort((a, b) => (a[sortProp] < b[sortProp] ? 1 : -1)),
 
   highter: (list, sortProp) =>
     [...list].sort((a, b) => (b[sortProp] - a[sortProp])),

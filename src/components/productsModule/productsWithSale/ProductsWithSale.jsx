@@ -1,33 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useMemo, useEffect } from 'react'
 import styles from '../stylesModule/Products.module.css'
 import SortProducts from '../../filtrationModule/SortProducts';
 import FilterProducts from '../../filtrationModule/FilterProducts';
-import { useSelector, useDispatch } from 'react-redux'
-import { setProducts } from '../../../store/slices/ProductsSlices'
-import { addProduct, basketSelector } from '../../../store/slices/BasketSlices';
-import { ProductService } from '../../../services/product.service';
-import { useSort } from '../../../hooks/useSort';
-import { useFilterByPrice } from '../../../hooks/useFilterByPrice';
-import CheckBox from '../../filtrationModule/CheckBox';
-import { useFilter } from '../../../hooks/useFilter';
-import { NavLink } from 'react-router-dom';
-import Button from '../../../UI/button/Button';
-import ProductData from '../productData/ProductData';
 import { API_URL } from '../../../config/api';
+import { useDispatch, useSelector } from 'react-redux';
+import { useFilterByPrice } from '../../../hooks/useFilterByPrice';
+import { useSort } from '../../../hooks/useSort';
+import { addProduct } from '../../../store/slices/BasketSlices';
+import { setProducts } from '../../../store/slices/ProductsSlices';
+import { NavLink } from 'react-router-dom'
+import { ProductService } from '../../../services/product.service';
+import Button from '../../UI/button/pathButton'
+import ProductData from '../productData/ProductData';
 
-export default function All_products() {
+export default function Products_with_sale() {
 
-  const dispatch = useDispatch()
   const allProducts = useSelector(state => state.products.products)
 
-  const {
-    filterValue,
-    filteredList: filteredListByDiscount,
-    onFilter } = useFilter(allProducts, 'discont_price')
-
-  const { filterByMax, filterByMin, filteredList, priceFrom, priceTo } = useFilterByPrice(filteredListByDiscount)
-
-  const { onSort, sortedList, sortMode } = useSort(filteredList, 'price')
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const getAllProducts = async () => {
@@ -37,17 +27,24 @@ export default function All_products() {
     getAllProducts()
   }, [])
 
+  const productsWithSale = useMemo(() => {
+    return allProducts.filter(product => product.discont_price)
+  }, [allProducts])
+
+  const { filterByMax, filterByMin, filteredList, priceFrom, priceTo } = useFilterByPrice(productsWithSale)
+
+  const { onSort, sortedList, sortMode } = useSort(filteredList, 'price')
+
   const addProductInBasket = (product) => {
     dispatch(addProduct(product))
   }
 
   return (
     <div className={styles.tools_container}>
-      <p className={styles.page_title}>All products</p>
+      <p className={styles.page_title}>Products with sale</p>
 
-      <div className={styles.form_container}>
+      <div className={styles.form_container_sale}>
         <FilterProducts priceFrom={priceFrom} priceTo={priceTo} filterByMin={filterByMin} filterByMax={filterByMax} />
-        <CheckBox type='checkbox' checked={filterValue} onChange={onFilter} />
         <SortProducts sortProducts={onSort} sortMode={sortMode} />
       </div>
 
@@ -55,7 +52,7 @@ export default function All_products() {
 
         {sortedList.map((product) => (
           <div key={product.id} className={styles.product_container}>
-            <NavLink to={'/product'} state={{ id: product.id, title: product.title }} >
+            <NavLink to={'/product'} state={{ id: product.id, title: product.title }}>
               <img className={styles.img_product} src={API_URL + product.image} alt="product" />
             </NavLink>
             <Button className={styles.btn_add} onClick={() => addProductInBasket(product)} buttonText={'Add to cart'} />
