@@ -14,11 +14,17 @@ import { NavLink } from 'react-router-dom';
 import Button from '../../UI/button/Button';
 import ProductData from '../productData/ProductData';
 import { API_URL } from '../../../config/api';
+import { useGetAllProductsQuery } from '../../../store/api/productApi';
 
 export default function All_products() {
 
   const dispatch = useDispatch()
-  const allProducts = useSelector(state => state.products.products)
+  // const allProducts = useSelector(state => state.products.products)
+  const { data: allProducts = [], isLoading } = useGetAllProductsQuery()
+
+
+
+  // console.log(allProducts);
 
   const {
     filterValue,
@@ -29,16 +35,20 @@ export default function All_products() {
 
   const { onSort, sortedList, sortMode } = useSort(filteredList, 'price')
 
-  useEffect(() => {
-    const getAllProducts = async () => {
-      const products = await ProductService.getAllProducts()
-      dispatch(setProducts(products))
-    }
-    getAllProducts()
-  }, [])
+  // useEffect(() => {
+  //   const getAllProducts = async () => {
+  //     const products = await ProductService.getAllProducts()
+  //     dispatch(setProducts(products))
+  //   }
+  //   getAllProducts()
+  // }, [])
 
   const addProductInBasket = (product) => {
     dispatch(addProduct(product))
+  }
+
+  if (isLoading) {
+    return <h2>loading...</h2>
   }
 
   return (

@@ -7,9 +7,9 @@
 .text_title {
   color: #000;
   font-size: 40px;
-  font-weight: 700;
   letter-spacing: 1.2px;
   margin-bottom: 16px;
+  text-shadow: rgba(0, 0, 0, 0.5) 1px 0 0;
 }
 
 .link_back {

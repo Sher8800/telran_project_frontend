@@ -21,7 +21,7 @@ export default function Catalog() {
     <div className={styles.container}>
 
       <div className={styles.container_text_btn}>
-        <p className={styles.catalog}>Catalog</p>
+        <p className={styles.page_title}>Catalog</p>
         <Link className={styles.btn} to="/categories">
           <p className={styles.btn_item_text} >All categories</p>
         </Link>
@@ -29,17 +29,12 @@ export default function Catalog() {
 
       <div className={styles.container_categories}>
 
-        {allCotegories.map((cotegorie) => {
-          return <NavLink key={cotegorie.id} to={'/productsInCategories'} state={{ id: cotegorie.id, title: cotegorie.title }} className={styles.container_categorie}>
-            {cotegorie.id <= 4 ?
-              <>
-                <img className={styles.img_cotegorie} src={API_URL + cotegorie.image} alt="cotegorie" />
-                <p className={styles.text}>{cotegorie.title}</p>
-              </>
-              : ''
-            }
+        {allCotegories.slice(0, 4).map((cotegorie) => (
+          <NavLink key={cotegorie.id} to={'/productsInCategories'} state={{ id: cotegorie.id, title: cotegorie.title }} className={styles.container_categorie}>
+            <img className={styles.img_cotegorie} src={API_URL + cotegorie.image} alt="cotegorie" />
+            <p className={styles.cotegorie_title}>{cotegorie.title}</p>
           </NavLink>
-        })}
+        ))}
 
       </div>
     </div >

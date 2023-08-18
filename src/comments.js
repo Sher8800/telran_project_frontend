@@ -9,4 +9,6 @@ portfolio website frontend developer "hostinger.com"
 ponimaem-sleng-programmistov-mini-slovar-dlya-nachinayuschih-razrabotchikov#d" 
 
 диплоид в программировании?
+
+git pages?
 */

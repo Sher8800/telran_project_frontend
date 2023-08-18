@@ -17,13 +17,13 @@ export default function CategoriesModule() {
   }, [])
 
   return (
-    <div className={styles.cotainer_categories}>
+    <div className={styles.cotainer}>
       <p className={styles.page_title}>Categories</p>
-      <div className={styles.categories}>
-        {allCategories.map((product) => {
-          return <NavLink to={'/productsInCategories'} state={{ id: product.id, title: product.title }} key={product.id} className={styles.container_img}>
-            <img className={styles.img_categories} src={API_URL + product.image} alt="product" />
-            <p className={styles.text}>{product.title}</p>
+      <div className={styles.container_categories}>
+        {allCategories.map((cotegorie) => {
+          return <NavLink to={'/productsInCategories'} state={{ id: cotegorie.id, title: cotegorie.title }} key={cotegorie.id} className={styles.container_categorie}>
+            <img className={styles.img_categorie} src={API_URL + cotegorie.image} alt="product" />
+            <p className={styles.cotegorie_title}>{cotegorie.title}</p>
           </NavLink>
         })}
       </div>

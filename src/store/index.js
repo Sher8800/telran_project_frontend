@@ -12,12 +12,14 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import { productApi } from "./api/productApi";
 
 
 
 const rootReducer = combineReducers({
   basketProducts: basketSlice,
-  products: productsSlice
+  products: productsSlice,
+  [productApi.reducerPath]: productApi.reducer,
 })
 
 const persistConfig = {
@@ -34,7 +36,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(productApi.middleware),
 })
 
 export const persistor = persistStore(store)

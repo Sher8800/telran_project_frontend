@@ -14,7 +14,7 @@
 
 .price_input {
   width: 103px;
-  height: 42px;
+  height: 40px;
   border-radius: 7px;
   border: 1px solid #000;
   padding: 0 10px;
@@ -43,14 +43,36 @@
 }
 
 .checkbox {
-  width: 40px;
-  height: 40px;
-  border-radius: 17px;
-  border: 1px solid #000;
+  display: none;
 }
 
+label {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  transition: all 200ms ease-in-out;
+}
+
+label:focus {
+  background-image: url('../../images/basket/check-mark.svg');
+  background-size: 40px;
+  background-repeat: no-repeat;
+}
+
+label:active {
+  transform: scale(.95);
+  box-shadow: 0 0 10px 3px rgba(144, 254, 164, 1)
+}
+
+/* label:focus {
+  background-image: url('../../images/basket/check-mark.svg');
+  background-size: 40px;
+  background-repeat: no-repeat;
+} */
+
 .discount_container {
-  width: 300px;
+  width: 250px;
   display: flex;
   justify-content: space-between;
   align-items: center;

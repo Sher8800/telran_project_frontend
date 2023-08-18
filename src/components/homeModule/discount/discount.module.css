@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  /* box-shadow: 0 0 16px 16px rgb(59, 156, 27); */
 }
 
 .img {
