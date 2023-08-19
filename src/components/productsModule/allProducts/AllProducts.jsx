@@ -19,12 +19,8 @@ import { useGetAllProductsQuery } from '../../../store/api/productApi';
 export default function All_products() {
 
   const dispatch = useDispatch()
-  // const allProducts = useSelector(state => state.products.products)
-  const { data: allProducts = [], isLoading } = useGetAllProductsQuery()
 
-
-
-  // console.log(allProducts);
+  const { data: allProducts = [] } = useGetAllProductsQuery()
 
   const {
     filterValue,
@@ -35,20 +31,8 @@ export default function All_products() {
 
   const { onSort, sortedList, sortMode } = useSort(filteredList, 'price')
 
-  // useEffect(() => {
-  //   const getAllProducts = async () => {
-  //     const products = await ProductService.getAllProducts()
-  //     dispatch(setProducts(products))
-  //   }
-  //   getAllProducts()
-  // }, [])
-
   const addProductInBasket = (product) => {
     dispatch(addProduct(product))
-  }
-
-  if (isLoading) {
-    return <h2>loading...</h2>
   }
 
   return (
@@ -56,8 +40,8 @@ export default function All_products() {
       <p className={styles.page_title}>All products</p>
 
       <div className={styles.form_container}>
-        <FilterProducts priceFrom={priceFrom} priceTo={priceTo} filterByMin={filterByMin} filterByMax={filterByMax} />
-        <CheckBox type='checkbox' checked={filterValue} onChange={onFilter} />
+        <FilterProducts priceFrom={priceFrom} priceTo={priceTo} filterByMin={() => filterByMin()} filterByMax={() => filterByMax()} />
+        <CheckBox type='checkbox' checked={filterValue} onChange={() => onFilter()} />
         <SortProducts sortProducts={onSort} sortMode={sortMode} />
       </div>
 

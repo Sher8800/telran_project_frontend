@@ -2,7 +2,7 @@ import { useLayoutEffect, useState } from "react";
 
 const sortMap = {
 
-  highter: (list, sortProp) =>
+  higher: (list, sortProp) =>
     [...list].sort((a, b) => (b[sortProp] - a[sortProp])),
 
   lower: (list, sortProp) =>

@@ -26,20 +26,32 @@ export default function Header() {
             <div className={styles.headContainer}>
 
                 <div className={styles.container_logoCatalog}>
-                    <NavLink to=''>
+                    <NavLink className={({ isActive }) => isActive ?
+                        `${styles.link_logo} ${styles.active}`
+                        : styles.link_logo
+                    } to='/'>
                         <img className={styles.icon_logo} src={logo} alt="Logo" />
                     </NavLink>
-                    <NavLink to="/categories" className={styles.btn_catalog} >Catalog</NavLink>
+                    <NavLink to="/categories" className={({ isActive }) => isActive ?
+                        `${styles.btn_catalog} ${styles.active}`
+                        : styles.btn_catalog
+                    } >Catalog</NavLink>
                 </div>
                 <div className={styles.container_linksCart}>
                     <div className={styles.container_links}>
+
                         {links.map(({ label, link }) => (
-                            <NavLink key={link} className={({ isActive }) =>
-                                isActive ? `${styles.link} ${styles.active}` : styles.link
+                            <NavLink key={link} className={({ isActive }) => isActive ?
+                                `${styles.link} ${styles.active}`
+                                : styles.link
                             } to={link}>{label}</NavLink>
                         ))}
+
                     </div>
-                    <NavLink to={"/cart"}>
+                    <NavLink className={({ isActive }) => isActive ?
+                        `${styles.cart} ${styles.active}`
+                        : styles.cart
+                    } to={"/cart"}>
                         <img className={styles.icon_cart} src={cart} alt="Cart" />
                     </NavLink>
 
