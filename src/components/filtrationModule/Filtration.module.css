@@ -84,9 +84,7 @@ label {
 }
 
 .real_checkbox:checked+.fake_checkbox::before {
-  /* transform: scale(1); */
   transform: scale(1.07);
-  /* box-shadow: 0 4px 18px 4px rgba(94, 255, 0, 0.98) */
 }
 
 .discount_container {

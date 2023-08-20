@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect } from 'react'
+import React, { useMemo } from 'react'
 import styles from '../stylesModule/Products.module.css'
 import SortProducts from '../../filtrationModule/SortProducts';
 import FilterProducts from '../../filtrationModule/FilterProducts';
@@ -7,25 +7,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useFilterByPrice } from '../../../hooks/useFilterByPrice';
 import { useSort } from '../../../hooks/useSort';
 import { addProduct } from '../../../store/slices/BasketSlices';
-import { setProducts } from '../../../store/slices/ProductsSlices';
 import { NavLink } from 'react-router-dom'
-import { ProductService } from '../../../services/product.service';
 import Button from '../../UI/button/pathButton'
 import ProductData from '../productData/ProductData';
+
 
 export default function Products_with_sale() {
 
   const allProducts = useSelector(state => state.products.products)
 
   const dispatch = useDispatch()
-
-  useEffect(() => {
-    const getAllProducts = async () => {
-      const products = await ProductService.getAllProducts()
-      dispatch(setProducts(products))
-    }
-    getAllProducts()
-  }, [])
 
   const productsWithSale = useMemo(() => {
     return allProducts.filter(product => product.discont_price)
@@ -49,7 +40,6 @@ export default function Products_with_sale() {
       </div>
 
       <div className={styles.products_container}>
-
         {sortedList.map((product) => (
           <div key={product.id} className={styles.product_container}>
             <NavLink to={'/product'} state={{ id: product.id, title: product.title }}>
@@ -59,8 +49,8 @@ export default function Products_with_sale() {
             <ProductData product={product} />
           </div>
         ))}
-
       </div>
+
     </div>
   )
 }

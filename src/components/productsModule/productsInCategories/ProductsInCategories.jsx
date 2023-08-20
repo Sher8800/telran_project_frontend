@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styles from '../stylesModule/Products.module.css'
 import { API_URL } from '../../../config/api'
 import FilterProducts from '../../filtrationModule/FilterProducts';
@@ -12,28 +12,26 @@ import { NavLink } from 'react-router-dom';
 import Button from '../../UI/button/Button';
 import CheckBox from '../../filtrationModule/CheckBox';
 import { useFilter } from '../../../hooks/useFilter';
-import { ProductService } from '../../../services/product.service';
 import ProductData from '../productData/ProductData';
+import { useGetProductsInCategoriesQuery } from '../../../store/api/productApi';
+
+
+
+const initProducts = [];
 
 export default function ProductsInCategories() {
-
-  const [categorieProducts, setCategorieProducts] = useState([])
 
   const location = useLocation();
   const { state } = location;
 
-  useEffect(() => {
-    const getProducts = async () => {
-      const products = await ProductService.getProductsInCategories(state.id)
-      setCategorieProducts(products.data)
-    }
-    getProducts()
-  }, [])
+  const { data: categorieProducts = initProducts } = useGetProductsInCategoriesQuery(state.id)
+
+  console.log(categorieProducts.id);
 
   const {
     filterValue,
     filteredList: filteredListByDiscount,
-    onFilter } = useFilter(categorieProducts, 'discont_price')
+    onFilter } = useFilter(categorieProducts.data, 'discont_price')
 
   const {
     filterByMax,
@@ -63,7 +61,7 @@ export default function ProductsInCategories() {
 
       <div className={styles.products_container}>
 
-        {sortedList.map((product) => (
+        {sortedList ? sortedList.map((product) => (
           <div className={styles.product_container} key={product.id}>
             <NavLink to={'/product'} state={{ id: product.id, title: product.title }}>
               <img className={styles.img_product} src={API_URL + product.image} alt="product" />
@@ -71,7 +69,7 @@ export default function ProductsInCategories() {
             <Button className={styles.btn_add} onClick={() => addProductInBasket(product)} buttonText={'Add to cart'} />
             <ProductData product={product} />
           </div>
-        ))}
+        )) : ''}
 
       </div>
     </div >

@@ -31,7 +31,6 @@
 .btn:hover {
   transition: all 200ms;
   transform: scale(1.04);
-  /* font-size: 13px; */
   opacity: 1;
 }
 
@@ -59,7 +58,7 @@
 .container_categorie:hover {
   transition: all 80ms;
   transform: translateY(-6px);
-  box-shadow: 0 6px 10px 7px rgba(0, 0, 0, 0.2), 0 8px 24px 6px rgba(0, 0, 0, 0.19);
+  box-shadow: 0 6px 10px 4px rgb(94, 255, 0), 0 8px 24px 3px rgb(94, 255, 0);
 }
 
 .img_cotegorie {

@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   basket: []
 }
-// console.log(initialState.basket);
 
 const basketSlice = createSlice({
   name: 'basketProducts',

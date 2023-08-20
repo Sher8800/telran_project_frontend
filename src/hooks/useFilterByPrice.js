@@ -21,12 +21,12 @@ export const useFilterByPrice = (list) => {
     if (minPrice > maxPrice) {
       maxPrice = Infinity
     }
-    setFilteredList(list.filter((item) => {
+    setFilteredList(list ? list.filter((item) => {
       if (item.price < maxPrice && item.price > minPrice) {
         return true
       }
       return false
-    }))
+    }) : '');
   }, [list, priceFrom, priceTo]);
 
   return { priceFrom, priceTo, filterByMin, filterByMax, filteredList }

@@ -7,7 +7,7 @@ export default function Discount() {
   const [phoneNumber, setPhoneNumber] = useState('')
 
   const [getDiscount, { isSuccess, data }] = useGetDiscountMutation()
-  // console.log(data?.message);
+
   const onPhoneChange = (event) => {
     setPhoneNumber(event.target.value)
   }

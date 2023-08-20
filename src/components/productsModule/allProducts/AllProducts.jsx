@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styles from '../stylesModule/Products.module.css'
 import SortProducts from '../../filtrationModule/SortProducts';
 import FilterProducts from '../../filtrationModule/FilterProducts';
-import { useSelector, useDispatch } from 'react-redux'
-import { setProducts } from '../../../store/slices/ProductsSlices'
-import { addProduct, basketSelector } from '../../../store/slices/BasketSlices';
-import { ProductService } from '../../../services/product.service';
+import { useDispatch } from 'react-redux'
+import { addProduct } from '../../../store/slices/BasketSlices';
 import { useSort } from '../../../hooks/useSort';
 import { useFilterByPrice } from '../../../hooks/useFilterByPrice';
 import CheckBox from '../../filtrationModule/CheckBox';
@@ -16,11 +14,13 @@ import ProductData from '../productData/ProductData';
 import { API_URL } from '../../../config/api';
 import { useGetAllProductsQuery } from '../../../store/api/productApi';
 
+const initProducts = [];
+
 export default function All_products() {
 
   const dispatch = useDispatch()
 
-  const { data: allProducts = [] } = useGetAllProductsQuery()
+  const { data: allProducts = initProducts } = useGetAllProductsQuery()
 
   const {
     filterValue,
@@ -40,8 +40,8 @@ export default function All_products() {
       <p className={styles.page_title}>All products</p>
 
       <div className={styles.form_container}>
-        <FilterProducts priceFrom={priceFrom} priceTo={priceTo} filterByMin={() => filterByMin()} filterByMax={() => filterByMax()} />
-        <CheckBox type='checkbox' checked={filterValue} onChange={() => onFilter()} />
+        <FilterProducts priceFrom={priceFrom} priceTo={priceTo} filterByMin={filterByMin} filterByMax={filterByMax} />
+        <CheckBox type='checkbox' checked={filterValue} onChange={onFilter} />
         <SortProducts sortProducts={onSort} sortMode={sortMode} />
       </div>
 
