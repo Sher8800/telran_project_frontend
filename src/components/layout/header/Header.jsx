@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import logo from '../../../images/header/logo.svg'
 import cart from '../../../images/header/cart.svg'
+import basket from '../../../images/header/basket.svg'
 import styles from './Header.module.css'
 import { Link, NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { basketSelector } from '../../../store/slices/BasketSlices'
 
 const links = [
     {
@@ -20,6 +23,10 @@ const links = [
 ]
 
 export default function Header() {
+
+    const { basket: basketProducts } = useSelector(basketSelector)
+
+    console.log(basketProducts.length);
 
     return (
         <header>
@@ -49,11 +56,13 @@ export default function Header() {
 
                     </div>
                     <NavLink className={({ isActive }) => isActive ?
-                        `${styles.cart} ${styles.active}`
-                        : styles.cart
+                        `${styles.basket} ${styles.active}`
+                        : styles.basket
                     } to={"/cart"}>
-                        <img className={styles.icon_cart} src={cart} alt="Cart" />
+                        <img className={styles.icon_basket} src={basket} alt="Cart" />
+                        <p className={styles.number_of_products}>{basketProducts.length}</p>
                     </NavLink>
+
 
                 </div>
 

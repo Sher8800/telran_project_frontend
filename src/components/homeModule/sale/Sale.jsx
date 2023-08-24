@@ -28,7 +28,7 @@ export default function Sale() {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container_sale}>
       <p className={`${styles.page_title} ${styles.sale}`}>Sale</p>
 
       <div className={styles.products_container}>
