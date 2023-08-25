@@ -4,8 +4,8 @@ import forward from '../../images/basket/icon-forward.png';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { basketSelector, removeProduct } from '../../store/slices/BasketSlices';
-import ProductsСontainer from './ProductsСontainer';
-import RegistrationContainer from './RegistrationContainer';
+import ProductsСontainer from './ProductsForm';
+import RegistrationContainer from './RegistrationForm';
 import smiley from '../../images/basket/smiley.jpg'
 
 export default function Basket() {
