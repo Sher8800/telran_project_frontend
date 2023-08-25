@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import logo from '../../../images/header/logo.svg'
-import cart from '../../../images/header/cart.svg'
 import basket from '../../../images/header/basket.svg'
 import styles from './Header.module.css'
 import { Link, NavLink } from 'react-router-dom'

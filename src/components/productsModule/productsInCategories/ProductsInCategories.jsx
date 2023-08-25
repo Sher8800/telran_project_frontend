@@ -26,8 +26,6 @@ export default function ProductsInCategories() {
 
   const { data: categorieProducts = initProducts } = useGetProductsInCategoriesQuery(state.id)
 
-  console.log(categorieProducts.id);
-
   const {
     filterValue,
     filteredList: filteredListByDiscount,

@@ -1,11 +1,10 @@
 import React from 'react';
 import styles from './Basket.module.css';
-import forward from '../../images/basket/icon-forward.png';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { basketSelector, removeProduct } from '../../store/slices/BasketSlices';
-import ProductsСontainer from './ProductsForm';
-import RegistrationContainer from './RegistrationForm';
+import ProductsСontainer from './ProductsСontainer';
+import RegistrationForm from './RegistrationForm';
 import smiley from '../../images/basket/smiley.jpg'
 
 export default function Basket() {
@@ -39,7 +38,7 @@ export default function Basket() {
 
       <div className={styles.product_order_container}>
         <ProductsСontainer basketProducts={basketProducts} removeProductInBasket={removeProductInBasket} />
-        <RegistrationContainer basketProducts={basketProducts} order={order} />
+        <RegistrationForm basketProducts={basketProducts} order={order} />
       </div>
 
     </div >
