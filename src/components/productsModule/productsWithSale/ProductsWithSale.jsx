@@ -8,7 +8,7 @@ import { useFilterByPrice } from '../../../hooks/useFilterByPrice';
 import { useSort } from '../../../hooks/useSort';
 import { addProduct } from '../../../store/slices/BasketSlices';
 import { NavLink } from 'react-router-dom'
-import Button from '../../UI/button/pathButton'
+import Button from '../../UI/button'
 import ProductData from '../productData/ProductData';
 
 

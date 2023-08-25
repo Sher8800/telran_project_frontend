@@ -26,8 +26,6 @@ export default function Header() {
 
     const { basket: basketProducts } = useSelector(basketSelector)
 
-    console.log(basketProducts.length);
-
     return (
         <header>
             <div className={styles.headContainer}>

@@ -8,7 +8,6 @@ import ProductsСontainer from './ProductsСontainer';
 import RegistrationContainer from './RegistrationContainer';
 import smiley from '../../images/basket/smiley.jpg'
 
-
 export default function BasketModule() {
 
   const { basket: basketProducts } = useSelector(basketSelector)
@@ -23,6 +22,14 @@ export default function BasketModule() {
     dispatch(removeProduct(product))
   }
 
+  if (!basketProducts.length) {
+    return (< div className={styles.empty_basket}>
+      <img className={styles.smiley} src={smiley} alt='Smiley' />
+      <p className={styles.text}>Empty</p>
+    </ div>)
+  }
+
+
   return (
     <div className={styles.basket_container}>
 
@@ -33,13 +40,12 @@ export default function BasketModule() {
 
       <div className={styles.product_order_container}>
         <ProductsСontainer basketProducts={basketProducts} removeProductInBasket={removeProductInBasket} />
-        <RegistrationContainer order={order} />
+        <RegistrationContainer basketProducts={basketProducts} order={order} />
       </div>
 
     </div >
-    // < div className={styles.empty_basket}>
-    //   <img className={styles.smiley} src={smiley} alt='Smiley' />
-    //   <p className={styles.text}>Empty</p>
-    // </ div>}
+
   )
 }
+
+

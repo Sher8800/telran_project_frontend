@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import styles from './Discount.module.css'
-import { useGetDiscountMutation } from '../../../store/api/productApi'
-import Button from '../../UI/button/Button'
+import { useSendDiscountMutation } from '../../../store/api/productApi'
+import Button from '../../UI/button'
 import Input from '../../UI/input/Input'
 
 export default function Discount() {
 
   const [phoneNumber, setPhoneNumber] = useState('')
 
-  const [getDiscount, { isSuccess, data }] = useGetDiscountMutation()
+  const [sendDiscount, { isSuccess, data }] = useSendDiscountMutation()
+
+  // console.log(isSuccess);
 
   const onPhoneChange = (event) => {
     setPhoneNumber(event.target.value)
@@ -16,7 +18,7 @@ export default function Discount() {
 
   const onSubmit = (event) => {
     event.preventDefault()
-    getDiscount({ phone: phoneNumber })
+    sendDiscount({ phone: phoneNumber })
   }
 
   return (

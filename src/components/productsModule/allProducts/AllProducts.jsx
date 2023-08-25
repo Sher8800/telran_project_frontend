@@ -14,6 +14,7 @@ import ProductData from '../productData/ProductData';
 import { API_URL } from '../../../config/api';
 import { useGetAllProductsQuery } from '../../../store/api/productApi';
 
+
 const initProducts = [];
 
 export default function All_products() {

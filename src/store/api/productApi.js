@@ -22,7 +22,7 @@ export const productApi = createApi({
       query: (id) => `products/${id}`,
     }),
 
-    getDiscount: builder.mutation({
+    sendDiscount: builder.mutation({
       query: (body) => ({
         url: 'sale/send',
         method: 'POST',
@@ -30,6 +30,14 @@ export const productApi = createApi({
       }),
     }),
 
+    sendProduct: builder.mutation({
+      query: (body) => ({
+        url: 'order/send ',
+        method: 'POST',
+        body,
+      }),
+    }),
+
   }),
 })
-export const { useGetAllProductsQuery, useGetDiscountMutation, useGetCategoriesQuery, useGetProductQuery, useGetProductsInCategoriesQuery } = productApi
+export const { useGetAllProductsQuery, useSendDiscountMutation, useGetCategoriesQuery, useGetProductQuery, useGetProductsInCategoriesQuery, useSendProductMutation } = productApi

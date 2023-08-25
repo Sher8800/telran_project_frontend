@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import classNames from 'classnames'
 
-export default function Input({ className, ...props }) {
+const Input = forwardRef(({ className, ...props }, ref) => {
     return (
-        <input {...props} className={classNames({ [className]: className })} />
+        <input {...props} ref={ref} className={classNames({ [className]: className })} />
     )
-}
+})
+
+export default Input
