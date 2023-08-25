@@ -8,7 +8,7 @@ import ProductsСontainer from './ProductsСontainer';
 import RegistrationContainer from './RegistrationContainer';
 import smiley from '../../images/basket/smiley.jpg'
 
-export default function BasketModule() {
+export default function Basket() {
 
   const { basket: basketProducts } = useSelector(basketSelector)
 
@@ -28,7 +28,6 @@ export default function BasketModule() {
       <p className={styles.text}>Empty</p>
     </ div>)
   }
-
 
   return (
     <div className={styles.basket_container}>
