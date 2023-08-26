@@ -13,6 +13,7 @@ import Button from '../../UI/button/Button';
 import ProductData from '../productData/ProductData';
 import { API_URL } from '../../../config/api';
 import { useGetAllProductsQuery } from '../../../store/api/productApi';
+import BackToTopButton from '../../UI/button/backToTopButton/BackToTopButton';
 
 
 const initProducts = [];
@@ -59,6 +60,7 @@ export default function All_products() {
         ))}
 
       </div>
+      <BackToTopButton />
     </div>
   )
 }

@@ -3,6 +3,7 @@ import styles from './Categories.module.css'
 import { API_URL } from '../../config/api'
 import { NavLink } from 'react-router-dom'
 import { useGetCategoriesQuery } from '../../store/api/productApi'
+import BackToTopButton from '../UI/button/backToTopButton/BackToTopButton'
 
 
 const initProducts = [];
@@ -22,6 +23,7 @@ export default function CategoriesModule() {
           </NavLink>
         ))}
       </div>
+      <BackToTopButton />
     </div>
   )
 }

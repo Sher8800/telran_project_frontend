@@ -10,6 +10,7 @@ import { addProduct } from '../../../store/slices/BasketSlices';
 import { NavLink } from 'react-router-dom'
 import Button from '../../UI/button'
 import ProductData from '../productData/ProductData';
+import BackToTopButton from '../../UI/button/backToTopButton/BackToTopButton';
 
 
 export default function Products_with_sale() {
@@ -50,6 +51,8 @@ export default function Products_with_sale() {
           </div>
         ))}
       </div>
+
+      <BackToTopButton />
 
     </div>
   )

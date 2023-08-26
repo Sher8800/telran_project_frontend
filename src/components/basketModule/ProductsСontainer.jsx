@@ -4,8 +4,21 @@ import styles from './Basket.module.css';
 import { API_URL } from '../../config/api';
 import plus from '../../images/basket/plus.png';
 import imgDelete from '../../images/basket/delete.png';
+import { decrementProduct, incrementProduct } from '../../store/slices/BasketSlices';
+import { useDispatch } from 'react-redux';
 
 export default function ProductsСontainer({ basketProducts, removeProductInBasket }) {
+
+  const dispatch = useDispatch()
+
+  const incrementProductInBasket = (productId) => {
+    dispatch(incrementProduct(productId))
+  }
+
+  const decrementProductInBasket = (productId) => {
+    dispatch(decrementProduct(productId))
+  }
+
   return (
 
     <div className={styles.products_container}>
@@ -19,18 +32,23 @@ export default function ProductsСontainer({ basketProducts, removeProductInBask
             <p className={styles.description}>{product.title}</p>
 
             <div className={styles.btn_quantity_container}>
-              <Button className={styles.btn_decriment_container} buttonText={<div className={styles.btn_decriment}></div>} />
-              <p className={styles.quantity}>1</p>
-              <Button className={styles.btn_incriment} buttonText={<img src={plus} alt="incriment" />} />
+              <Button className={styles.btn_decriment_container} onClick={() => decrementProductInBasket(product.id)} buttonText={<div className={styles.btn_decriment}></div>} />
+
+              <p className={styles.quantity}>{product.count}</p>
+
+              <Button className={styles.btn_incriment} onClick={() => incrementProductInBasket(product.id)} buttonText={<img src={plus} alt="incriment" />} />
             </div>
 
           </div>
 
           <div className={styles.product_price_container}>
-            <p className={styles.new_price}>{product.price}<span className={styles.new_dollar}>$</span></p>
             {product.discont_price ?
-              <p className={styles.old_price}>{Math.ceil(product.price / (1 - (product.discont_price / 100)))}$</p>
-              : ''
+              <>
+                <p className={styles.discount_price}>{product.discont_price}<span className={styles.discount_dollar}>$</span></p>
+                <p className={styles.price}>{`${product.price}$`}</p>
+              </>
+              :
+              <p className={styles.discount_price}>{`${product.price}$`}</p>
             }
           </div>
 

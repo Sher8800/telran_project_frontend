@@ -21,7 +21,6 @@ export default function RegistrationContainer({ order, basketProducts }) {
 
 
   const onSubmit = (data) => {
-    console.log(data, basketProducts)
     sendProduct({ ...data, order: basketProducts })
     reset()
   };

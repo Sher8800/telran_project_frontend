@@ -14,6 +14,7 @@ import CheckBox from '../../filtrationModule/CheckBox';
 import { useFilter } from '../../../hooks/useFilter';
 import ProductData from '../productData/ProductData';
 import { useGetProductsInCategoriesQuery } from '../../../store/api/productApi';
+import BackToTopButton from '../../UI/button/backToTopButton/BackToTopButton';
 
 
 
@@ -70,6 +71,7 @@ export default function ProductsInCategories() {
         )) : ''}
 
       </div>
+      <BackToTopButton />
     </div >
   )
 }

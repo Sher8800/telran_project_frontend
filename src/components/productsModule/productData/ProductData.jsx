@@ -5,16 +5,20 @@ export default function ProductData({ product }) {
   return (
     <div className={styles.product_description}>
       <div className={styles.container_price}>
-        <p className={styles.new_price}>{product.price + '$'}</p>
+
         {product.discont_price ?
           <>
-            <p className={styles.old_price}>{Math.ceil(product.price / (1 - (product.discont_price / 100))) + '$'}</p>
-            <p className={styles.discount}>{'-' + product.discont_price + '%'}</p>
+            <p className={styles.discount_price}>{product.discont_price + '$'}</p>
+            <p className={styles.price}>{product.price}</p>
+            <p className={styles.discount}>{`- ${Math.ceil(100 - (product.discont_price / (product.price / 100)))} %`}</p>
           </>
-          : ''
+          :
+          <p className={styles.discount_price}>{product.price}</p>
         }
+
       </div>
       <p className={styles.product_title}>{product.title}</p>
     </div>
   )
 }
+

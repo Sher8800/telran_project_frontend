@@ -1,10 +1,10 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import classNames from 'classnames'
 
-const Button = forwardRef(({ className, buttonText, ...props }, ref) => {
+const Button = ({ className, buttonText, ...props }) => {
     return (
-        <button {...props} ref={ref} className={classNames({ [className]: className })} >{buttonText}</button>
+        <button {...props} className={classNames({ [className]: className })} >{buttonText}</button>
     )
-})
+}
 
 export default Button

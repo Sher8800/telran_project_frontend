@@ -10,11 +10,7 @@
   text-shadow: rgba(0, 0, 0, 0.5) 1px 0 0;
 }
 
-.link_back {
-  display: inline;
-}
-
-.link_back {
+.link_text {
   color: #000;
   font-size: 1.25em;
   font-weight: 500px;
@@ -23,11 +19,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 34px;
-}
-
-.link_text {
   margin-right: 17px;
-
 }
 
 .img_forward {
@@ -38,8 +30,6 @@
 .product_order_container {
   display: flex;
   justify-content: space-between;
-  /* grid-template-columns: 2fr 1fr; */
-  /* column-gap: 52px; */
 }
 
 .product_container:first-child {
@@ -138,21 +128,21 @@
   align-items: center;
 }
 
-.new_price {
+.discount_price {
   color: #000;
   font-size: 2.5em;
   font-weight: 600;
   letter-spacing: 1.2px;
 }
 
-.new_dollar {
+.discount_dollar {
   color: #000;
   font-size: 0.6em;
   font-weight: 600px;
   letter-spacing: 0.6px;
 }
 
-.old_price {
+.price {
   color: #8B8B8B;
   font-size: 1.25em;
   font-weight: 500;
@@ -181,7 +171,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* align-content: end; */
   border-radius: 21px;
   padding: 25px;
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2), 0 0 5px 1px rgba(0, 0, 0, 0.19);
@@ -228,19 +217,15 @@
 }
 
 .btn_container {
-  height: 250px;
+  height: 220px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* display: grid; */
-  /* grid-template-rows: 1fr 1fr; */
-  /* row-gap: 25px; */
 }
 
 .input_container {
   flex-direction: column;
   align-items: flex-start;
-  /* display: flex; */
 }
 
 .phohe_Number {
@@ -257,9 +242,8 @@
   padding: 25px;
   border-radius: 20px;
   border: none;
-  background: #FFF;
-  color: #929292;
-  font-size: 1.12em;
+  color: #000000;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: 0.54px;
   box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2), 0 0 10px 4px rgba(0, 0, 0, 0.19);
@@ -275,11 +259,11 @@
   width: 360px;
   height: 73px;
   border: none;
-  border-radius: 17px;
+  border-radius: 20px;
   background: #393;
   color: #FFF;
   text-align: center;
-  font-size: 1.75em;
+  font-size: 28px;
   font-weight: 700;
   letter-spacing: 0.84px;
   box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2), 0 0 10px 4px rgba(0, 0, 0, 0.19);
@@ -298,6 +282,14 @@
   transform: scale(1.03);
 }
 
+.error {
+  color: rgba(252, 2, 2, 0.7);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.54px;
+  padding: 10px;
+}
+
 .empty_basket {
   margin: 79px 30px 143px 30px;
   display: flex;
@@ -313,12 +305,4 @@
 .text {
   font-size: 10em;
   color: #8B8B8B;
-}
-
-.error {
-  color: rgba(252, 2, 2, 0.7);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.54px;
-  padding: 10px;
 }
