@@ -17,11 +17,18 @@ label,
   width: 103px;
   height: 40px;
   border-radius: 7px;
-  border: 1px solid #000;
+  border: none;
   padding: 0 10px;
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.48px;
+  box-shadow: 0 0 6px 0px rgb(112, 112, 112);
+}
+
+.price_input::-webkit-outer-spin-button,
+.price_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .sort_container {
@@ -35,12 +42,13 @@ label,
   width: 219px;
   height: 40px;
   border-radius: 7px;
-  border: 1px solid #000;
+  border: none;
   align-content: center;
   color: #797979;
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.48px;
+  box-shadow: 0 0 6px 0px rgb(112, 112, 112);
 }
 
 label {
@@ -62,7 +70,8 @@ label {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  border: 1px solid #000;
+  border: none;
+  box-shadow: 0 0 6px 0px rgb(112, 112, 112);
   transition: all 200ms ease-in-out;
   position: relative;
 }

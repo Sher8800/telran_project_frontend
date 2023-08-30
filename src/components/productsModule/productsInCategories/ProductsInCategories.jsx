@@ -15,6 +15,8 @@ import { useFilter } from '../../../hooks/useFilter';
 import ProductData from '../productData/ProductData';
 import { useGetProductsInCategoriesQuery } from '../../../store/api/productApi';
 import BackToTopButton from '../../UI/button/backToTopButton/BackToTopButton';
+import { ToastContainer, toast } from 'react-toastify';
+import Notifications from '../../UI/notification/Notifications';
 
 
 
@@ -46,6 +48,7 @@ export default function ProductsInCategories() {
 
   const addProductInBasket = (product) => {
     dispatch(addProduct(product))
+    toast.success("Product added to cart!")
   }
 
   return (
@@ -71,6 +74,7 @@ export default function ProductsInCategories() {
         )) : ''}
 
       </div>
+      <Notifications ToastContainer={ToastContainer} />
       <BackToTopButton />
     </div >
   )

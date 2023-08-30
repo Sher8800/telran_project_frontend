@@ -7,6 +7,8 @@ import { addProduct } from '../../../store/slices/BasketSlices'
 import { useDispatch } from 'react-redux'
 import ProductData from '../../productsModule/productData/ProductData'
 import { useGetAllProductsQuery } from '../../../store/api/productApi'
+import { ToastContainer, toast } from 'react-toastify';
+import Notifications from '../../UI/notification/Notifications';
 
 
 
@@ -25,6 +27,7 @@ export default function Sale() {
 
   const addProductInBasket = (product) => {
     dispatch(addProduct(product))
+    toast.success("Product added to cart!")
   }
 
   return (
@@ -43,6 +46,7 @@ export default function Sale() {
         ))}
       </div>
 
+      <Notifications ToastContainer={ToastContainer} />
     </div>
 
   )

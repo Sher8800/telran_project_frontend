@@ -20,6 +20,7 @@
   align-items: center;
   margin-bottom: 34px;
   margin-right: 17px;
+  cursor: pointer;
 }
 
 .img_forward {
@@ -272,12 +273,12 @@
   cursor: pointer;
 }
 
-.btn_order:hover {
+.btn_order:not([disabled]):hover {
   box-shadow: rgb(169, 237, 169) 0 0 10px 4px, rgb(169, 237, 169) 0 0 15px 6px;
   transform: scale(1.06);
 }
 
-.btn_order:active {
+.btn_order:not([disabled]):active {
   box-shadow: rgb(169, 237, 169) 0 0 5px 2px, rgb(169, 237, 169) 0 0 7px 3px;
   transform: scale(1.03);
 }
@@ -291,18 +292,44 @@
 }
 
 .empty_basket {
-  margin: 79px 30px 143px 30px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  column-gap: 50px;
 }
 
 .smiley {
-  width: 70vh;
-  height: 70vh;
+  width: 60vh;
+  height: 60vh;
 }
 
 .text {
-  font-size: 10em;
-  color: #8B8B8B;
+  font-size: 7em;
+  color: rgba(143, 143, 143, 0.39);
+}
+
+.modal_container {
+  height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fffcfc;
+}
+
+.modal_window {
+  width: 80vw;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 0 30px 3px rgb(0 0 0);
+}
+
+.modal_text {
+  font-size: 5em;
+  color: rgb(0, 150, 0);
+  background-color: #666666;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  text-shadow: rgb(24 24 24) 0px 6px 6px;
+  text-align: center;
 }

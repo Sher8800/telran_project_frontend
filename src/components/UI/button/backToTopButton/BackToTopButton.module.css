@@ -15,6 +15,7 @@
   align-items: center;
   transition: 1s;
   opacity: 1;
+  cursor: pointer;
 }
 
 .button_top {

@@ -11,6 +11,8 @@ import { NavLink } from 'react-router-dom'
 import Button from '../../UI/button'
 import ProductData from '../productData/ProductData';
 import BackToTopButton from '../../UI/button/backToTopButton/BackToTopButton';
+import { ToastContainer, toast } from 'react-toastify';
+import Notifications from '../../UI/notification/Notifications';
 
 
 export default function Products_with_sale() {
@@ -29,6 +31,7 @@ export default function Products_with_sale() {
 
   const addProductInBasket = (product) => {
     dispatch(addProduct(product))
+    toast.success("Product added to cart!")
   }
 
   return (
@@ -52,6 +55,7 @@ export default function Products_with_sale() {
         ))}
       </div>
 
+      <Notifications ToastContainer={ToastContainer} />
       <BackToTopButton />
 
     </div>

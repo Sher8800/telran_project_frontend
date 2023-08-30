@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Basket.module.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { basketSelector, removeProduct } from '../../store/slices/BasketSlices';
 import ProductsСontainer from './ProductsСontainer';
@@ -10,11 +10,18 @@ import BackToTopButton from '../UI/button/backToTopButton/BackToTopButton';
 
 export default function Basket() {
 
+  const [sendingOrder, setSendingOrder] = useState(false)
+
   const { basket: basketProducts } = useSelector(basketSelector)
 
-  const amount = basketProducts.map(product => product.price)
+  const allPrice = basketProducts.map(product => {
+    if (product.discount_total_price) {
+      return product.discount_total_price
+    }
+    return product.total_price
+  })
 
-  let order = amount.reduce((total, value) => total + value, 0)
+  let totalAmount = (allPrice.reduce((total, value) => total + value, 0)).toFixed(2)
 
   const dispatch = useDispatch()
 
@@ -26,28 +33,49 @@ export default function Basket() {
 
   const goBack = () => navigate(-1)
 
-  if (!basketProducts.length) {
-    return (< div className={styles.empty_basket}>
-      <img className={styles.smiley} src={smiley} alt='Smiley' />
-      <p className={styles.text}>Empty</p>
-    </ div>)
+  if (sendingOrder) {
+    return (
+      <div className={styles.modal_container}>
+        <div className={styles.modal_window}>
+          <p className={styles.modal_text}>
+            Congratulations on your first purchase!<br />
+            Our manager will contact you shortly!
+          </p>
+        </div>
+        <BackToTopButton />
+      </div>
+    )
   }
 
   return (
-    <div className={styles.basket_container}>
+    <>
+      {basketProducts.length ?
+        <div className={styles.basket_container}>
 
-      <p className={styles.text_title}>Shopping cart</p>
-      <span onClick={goBack} className={styles.link_text}>Back to the store {">"}</span>
+          <p className={styles.text_title}>Shopping cart</p>
+          <span onClick={goBack} className={styles.link_text}>Back to the store {">"}</span>
 
-      <div className={styles.product_order_container}>
-        <ProductsСontainer basketProducts={basketProducts} removeProductInBasket={removeProductInBasket} />
-        <RegistrationForm basketProducts={basketProducts} order={order} />
-      </div>
+          <div className={styles.product_order_container}>
+            <ProductsСontainer basketProducts={basketProducts} removeProductInBasket={removeProductInBasket} />
+            <RegistrationForm setSendingOrder={setSendingOrder} basketProducts={basketProducts} totalAmount={totalAmount} />
+          </div>
 
-      <BackToTopButton />
+          <BackToTopButton />
+        </div >
+        :
+        <div className={styles.basket_container}>
 
-    </div >
-
+          <div className={styles.product_order_container}>
+            < div className={styles.empty_basket}>
+              <img className={styles.smiley} src={smiley} alt='Smiley' />
+              <p className={styles.text}>Empty</p>
+            </ div>
+            <RegistrationForm basketProducts={basketProducts} totalAmount={totalAmount} />
+          </div>
+          <BackToTopButton />
+        </div >
+      }
+    </>
   )
 }
 

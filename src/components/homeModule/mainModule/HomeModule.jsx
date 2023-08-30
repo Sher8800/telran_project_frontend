@@ -7,12 +7,12 @@ import BackToTopButton from '../../UI/button/backToTopButton/BackToTopButton'
 
 export default function HomeModule() {
   return (
-    <div>
+    <>
       <NewSeason />
       <Catalog />
       <Discount />
       <Sale />
       <BackToTopButton />
-    </div>
+    </>
   )
 }

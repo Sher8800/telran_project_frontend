@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '../stylesModule/Products.module.css'
 import SortProducts from '../../filtrationModule/SortProducts';
 import FilterProducts from '../../filtrationModule/FilterProducts';
@@ -14,11 +14,15 @@ import ProductData from '../productData/ProductData';
 import { API_URL } from '../../../config/api';
 import { useGetAllProductsQuery } from '../../../store/api/productApi';
 import BackToTopButton from '../../UI/button/backToTopButton/BackToTopButton';
+import { ToastContainer, toast } from 'react-toastify';
+import Notifications from '../../UI/notification/Notifications';
 
 
 const initProducts = [];
 
 export default function All_products() {
+
+  // const [state, setState] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -35,6 +39,8 @@ export default function All_products() {
 
   const addProductInBasket = (product) => {
     dispatch(addProduct(product))
+    toast.success("Product added to cart!")
+    // setState(true)
   }
 
   return (
@@ -60,6 +66,7 @@ export default function All_products() {
         ))}
 
       </div>
+      <Notifications ToastContainer={ToastContainer} />
       <BackToTopButton />
     </div>
   )
