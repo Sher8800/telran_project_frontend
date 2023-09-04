@@ -12,14 +12,14 @@ export default function Footer() {
           <p className={styles.contact}>Contact</p>
           <p className={styles.phone_number}>+49 999 999 99 99</p>
           <div className={styles.container_icons}>
-            <span className={styles.container_instagram}>
+            <div className={styles.container_instagram}>
               <img src={instagram} alt="icon instagram" />
-              <span>instagram</span>
-            </span>
-            <span className={styles.container_whatsApp}>
+              <p>instagram</p>
+            </div>
+            <div className={styles.container_whatsApp}>
               <img src={whatsApp} alt="icon whatsApp" />
-              <span>WhatsApp</span>
-            </span>
+              <p>WhatsApp</p>
+            </div>
           </div>
         </div>
         <div className={styles.container_address} >

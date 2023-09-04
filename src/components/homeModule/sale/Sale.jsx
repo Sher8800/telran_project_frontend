@@ -18,6 +18,7 @@ const initProducts = [];
 export default function Sale() {
 
   const { data: allProducts = initProducts } = useGetAllProductsQuery()
+  console.log(allProducts);
 
   const productsWithSale = useMemo(() => {
     return (allProducts.filter(product => product.discont_price)).slice(0, 4)

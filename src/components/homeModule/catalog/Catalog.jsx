@@ -9,6 +9,7 @@ const initProducts = [];
 export default function Catalog() {
 
   const { data: allCotegories = initProducts } = useGetCategoriesQuery()
+  console.log(allCotegories);
 
   return (
     <div className={styles.container}>

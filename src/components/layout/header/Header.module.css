@@ -1,45 +1,55 @@
-header {
-  height: 4.3em;
-}
-
 .headContainer {
   box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 2;
-  position: fixed;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 10px 60px 10px 28px;
+  padding: 10px 28px;
   background-color: #FFF;
-}
-
-.container_logoCatalog,
-.container_linksCart {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .container_logoCatalog {
-  min-width: 20vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 25px;
 }
 
 .container_linksCart {
-  max-width: 35vw;
-  column-gap: 5.4vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 25px;
 }
 
 .link_logo {
-  width: 72px;
-  height: 72px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background-color: #393;
 }
 
 .icon_logo {
+  width: 100%;
   border-radius: 50%;
+}
+
+.btn_catalog {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  width: 125px;
+  height: 50px;
+  border-radius: 15px;
+  background: #393;
+  color: #FFF;
+  font-size: 1em;
+  font-weight: 700px;
+  text-decoration: none;
 }
 
 .link_logo,
@@ -71,21 +81,6 @@ header {
   box-shadow: 0 4px 18px 4px #5eff00fa
 }
 
-.btn_catalog {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
-  width: 17vh;
-  height: 6.8vh;
-  border-radius: 15px;
-  background: #393;
-  color: #FFF;
-  font-size: 1em;
-  font-weight: 700px;
-  text-decoration: none;
-}
-
 .container_links {
   display: flex;
   column-gap: 5.4vh;
@@ -103,9 +98,6 @@ header {
 }
 
 .basket {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
   position: relative;
 }
 
@@ -131,4 +123,55 @@ header {
   left: 20%;
   background: #393;
   border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .link_logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  .btn_catalog {
+    width: 90px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: .9em;
+  }
+
+  .icon_basket {
+    width: 40px;
+    height: 40px;
+  }
+
+  .number_of_products {
+    font-size: 11px;
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media screen and (max-width: 368px) {
+  .link_logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .btn_catalog {
+    width: 70px;
+    height: 25px;
+    border-radius: 5px;
+    font-size: .7em;
+  }
+
+  .icon_basket {
+    width: 35px;
+    height: 35px;
+  }
+
+  .number_of_products {
+    font-size: 8px;
+    width: 14px;
+    height: 14px;
+    top: 46%;
+  }
 }

@@ -8,7 +8,7 @@ import ProductsInCategories from './components/productsModule/productsInCategori
 import AllProducts from './components/productsModule/allProducts/AllProducts';
 import ProductsWithSale from './components/productsModule/productsWithSale/ProductsWithSale';
 import ProductsModule from './components/productModule/ProductModule';
-import BasketModule from './components/basketModule/Basket';
+import BasketModule from './components/basketModule/basket/Basket';
 
 
 function App() {

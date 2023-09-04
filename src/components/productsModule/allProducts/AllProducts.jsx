@@ -27,6 +27,7 @@ export default function All_products() {
   const dispatch = useDispatch()
 
   const { data: allProducts = initProducts } = useGetAllProductsQuery()
+  console.log(allProducts);
 
   const {
     filterValue,
