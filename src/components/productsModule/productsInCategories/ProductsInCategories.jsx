@@ -17,6 +17,7 @@ import { useGetProductsInCategoriesQuery } from '../../../store/api/productApi';
 import BackToTopButton from '../../UI/button/backToTopButton/BackToTopButton';
 import { ToastContainer, toast } from 'react-toastify';
 import Notifications from '../../UI/notification/Notifications';
+import useWindowSize from '../../../hooks/useWindowSize';
 
 
 
@@ -28,6 +29,8 @@ export default function ProductsInCategories() {
   const { state } = location;
 
   const { data: categorieProducts = initProducts } = useGetProductsInCategoriesQuery(state.id)
+
+  const { width } = useWindowSize();
 
   const {
     filterValue,
@@ -55,11 +58,11 @@ export default function ProductsInCategories() {
     <div className={styles.tools_container}>
       <p className={styles.page_title}>{state.title}</p>
 
-      <div className={styles.form_container}>
+      {width > 768 ? <div className={styles.form_container}>
         <FilterProducts priceFrom={priceFrom} priceTo={priceTo} filterByMin={filterByMin} filterByMax={filterByMax} />
         <CheckBox type='checkbox' checked={filterValue} onChange={onFilter} />
         <SortProducts sortProducts={onSort} sortMode={sortMode} />
-      </div>
+      </div> : ''}
 
       <div className={styles.products_container}>
 

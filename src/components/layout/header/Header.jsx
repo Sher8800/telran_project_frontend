@@ -48,7 +48,7 @@ export default function Header() {
             <div className={styles.container_linksCart}>
 
                 <div className={styles.container_links}>
-                    {width > 710 ? links.map(({ label, link }) => (
+                    {width > 768 ? links.map(({ label, link }) => (
                         <NavLink key={link} className={({ isActive }) => isActive
                             ? `${styles.link} ${styles.active}`
                             : styles.link} to={link}>{label}</NavLink>

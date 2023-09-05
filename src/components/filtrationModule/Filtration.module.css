@@ -1,8 +1,8 @@
 .price_container {
-  width: 350px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  column-gap: 15px;
 }
 
 label,
@@ -32,10 +32,10 @@ label,
 }
 
 .sort_container {
-  width: 350px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  column-gap: 15px;
 }
 
 .sort_select {
@@ -55,6 +55,7 @@ label {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  column-gap: 15px;
 }
 
 .real_checkbox {
@@ -96,6 +97,29 @@ label {
   transform: scale(1.07);
 }
 
-.discount_container {
-  width: 250px;
+@media screen and (max-width: 1024px) {
+
+  label,
+  .text {
+    font-size: 17px;
+  }
+
+  .price_input {
+    width: 80px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .sort_select {
+    width: 170px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .fake_checkbox {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+  }
+
 }

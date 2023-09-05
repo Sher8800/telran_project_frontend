@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from '../stylesModule/Products.module.css'
 import SortProducts from '../../filtrationModule/SortProducts';
 import FilterProducts from '../../filtrationModule/FilterProducts';
@@ -16,18 +16,18 @@ import { useGetAllProductsQuery } from '../../../store/api/productApi';
 import BackToTopButton from '../../UI/button/backToTopButton/BackToTopButton';
 import { ToastContainer, toast } from 'react-toastify';
 import Notifications from '../../UI/notification/Notifications';
+import useWindowSize from '../../../hooks/useWindowSize';
 
 
 const initProducts = [];
 
 export default function All_products() {
 
-  // const [state, setState] = useState(false)
-
   const dispatch = useDispatch()
 
   const { data: allProducts = initProducts } = useGetAllProductsQuery()
-  console.log(allProducts);
+
+  const { width } = useWindowSize();
 
   const {
     filterValue,
@@ -41,18 +41,17 @@ export default function All_products() {
   const addProductInBasket = (product) => {
     dispatch(addProduct(product))
     toast.success("Product added to cart!")
-    // setState(true)
   }
 
   return (
     <div className={styles.tools_container}>
       <p className={styles.page_title}>All products</p>
 
-      <div className={styles.form_container}>
+      {width > 768 ? <div className={styles.form_container}>
         <FilterProducts priceFrom={priceFrom} priceTo={priceTo} filterByMin={filterByMin} filterByMax={filterByMax} />
         <CheckBox type='checkbox' checked={filterValue} onChange={onFilter} />
         <SortProducts sortProducts={onSort} sortMode={sortMode} />
-      </div>
+      </div> : ''}
 
       <div className={styles.products_container}>
 

@@ -73,8 +73,45 @@
   text-align: center;
 }
 
-@media screen and (max-width: 1200px) {}
+@media screen and (max-width: 1024px) {
+  .basket_container {
+    margin: 3em 2em;
+  }
 
-@media screen and (max-width: 768px) {}
+  .text_title {
+    font-size: 2em;
+  }
 
-@media screen and (max-width: 368px) {}
+  .link_text {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .basket_container {
+    margin: 1.1em 14px;
+  }
+
+  .text_title {
+    font-size: 1.8em;
+    margin: 0 0 7px 18px;
+  }
+
+  .link_text {
+    font-size: 12px;
+    margin-bottom: 18px;
+    margin-right: 0;
+  }
+
+  .product_order_container {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .text_title {
+    font-size: 1.4em;
+    margin: 0 0 7px 0;
+  }
+}

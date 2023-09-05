@@ -3,7 +3,7 @@
 }
 
 .products_container {
-  width: 60%;
+  width: 65%;
 }
 
 .product_container {
@@ -16,13 +16,14 @@
 
 .img_product {
   width: 193px;
-  height: 166px;
+  height: auto;
   border-radius: 20px;
   box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2), 0 0 10px 4px rgba(0, 0, 0, 0.19);
 }
 
 .product_data_container {
   width: 360px;
+  padding: 10px 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -39,9 +40,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 50%;
+  width: 40%;
   padding: 6px 6px;
-  /* height: 40px; */
   border-radius: 12px;
   box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2), 0 0 10px 4px rgba(0, 0, 0, 0.19);
 }
@@ -52,7 +52,7 @@
 
 .btn_decriment_container {
   width: 30px;
-  height: 30px;
+  height: auto;
   background: #FFF;
   border: none;
   cursor: pointer;
@@ -74,7 +74,10 @@
 
 .btn_incriment {
   width: 22px;
-  height: 22px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   cursor: pointer;
   background: #fff;
@@ -99,7 +102,7 @@
 
 .discount_price {
   color: #000;
-  font-size: 2.5em;
+  font-size: 2.5rem;
   font-weight: 600;
   letter-spacing: 1.2px;
 }
@@ -132,4 +135,219 @@
 .img_delete:hover {
   box-shadow: rgb(169, 237, 169) 0 0 6px 6px;
   transform: scale(1.06);
+}
+
+
+@media screen and (max-width: 1300px) {
+  .product_container {
+    padding: 20px 8px 20px 0;
+  }
+
+  .img_product {
+    width: 163px;
+  }
+
+  .product_data_container {
+    padding: 7px 0;
+  }
+
+  .description {
+    font-size: 1em;
+  }
+
+  .discount_price {
+    font-size: 2rem;
+  }
+
+  .btn_quantity_container {
+    padding: 4px 4px;
+  }
+
+  .btn_decriment_container {
+    width: 25px;
+  }
+
+  .btn_decriment {
+    width: 16px;
+  }
+
+  .quantity {
+    font-size: 1.1em;
+  }
+
+  .btn_incriment {
+    width: 16px;
+  }
+
+  .discount_price {
+    font-size: 2.2rem;
+  }
+
+  .price {
+    font-size: 1em;
+  }
+
+  .img_delete {
+    width: 3.4vh;
+    height: 3.4vh;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .product_container {
+    padding: 15px 7px 15px 0;
+  }
+
+  .img_product {
+    width: 125px;
+  }
+
+  .product_data_container {
+    padding: 5px 0;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .discount_price {
+    font-size: 1.6rem;
+  }
+
+  .btn_quantity_container {
+    padding: 4px 4px;
+  }
+
+  .btn_decriment_container {
+    width: 18px;
+  }
+
+  .btn_decriment {
+    width: 13px;
+  }
+
+  .quantity {
+    font-size: 14px;
+  }
+
+  .btn_incriment {
+    width: 16px;
+  }
+
+  .discount_price {
+    font-size: 1.7rem;
+  }
+
+  .price {
+    font-size: 15px;
+  }
+
+  .img_delete {
+    width: 3vh;
+    height: 3vh;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .product_container:first-child {
+    border-top: none;
+  }
+
+  .products_container {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .product_container {
+    padding: 20px;
+  }
+
+  .img_product {
+    width: 35%;
+  }
+
+  .product_data_container {
+    row-gap: 25px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+
+  .btn_quantity_container {
+    padding: 0.2em 0.3em;
+    width: 50%;
+  }
+
+  .quantity {
+    font-size: 1.1em;
+  }
+
+  .btn_decriment {
+    width: 1.1em;
+    border: 1.7px solid #000;
+  }
+
+  .plus {
+    width: 1.1em;
+  }
+
+  .product_price_container {
+    flex-direction: column;
+  }
+
+  .img_delete {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .product_container {
+    padding: 20px 0;
+  }
+
+  .img_product {
+    width: 30%;
+    height: 30%;
+  }
+
+
+  .description {
+    font-size: 12px;
+    grid-row: 1/4;
+  }
+
+  .btn_quantity_container {
+    padding: 0.2em 5px;
+    width: 65%;
+  }
+
+
+  .quantity {
+    font-size: .8em;
+  }
+
+  .btn_decriment {
+    width: .8em;
+    border: 1px solid #000;
+  }
+
+  .plus {
+    width: .8em;
+  }
+
+  .discount_price {
+    font-size: 1rem;
+  }
+
+  .price {
+    font-size: 10px;
+  }
+
+  .img_delete {
+    width: 25px;
+    height: 25px;
+  }
 }

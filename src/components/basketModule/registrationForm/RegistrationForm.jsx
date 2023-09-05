@@ -62,7 +62,7 @@ export default function RegistrationForm({ totalAmount, basketProducts, setSendi
           <>{errors.phone && <p className={styles.error}>{errors.phone.message}</p>}</>
         </label>
         <Button disabled={!basketProducts.length && 'disabled'} className={styles.btn_order} buttonText='Order' />
-        <Notifications ToastContainer={ToastContainer} />
+        {/* <Notifications ToastContainer={ToastContainer} /> */}
       </form >
 
     </div >
