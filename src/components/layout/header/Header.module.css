@@ -123,6 +123,41 @@
   border-radius: 50%;
 }
 
+@media screen and (max-width: 1024px) {
+  .headContainer {
+    padding: 6px 18px;
+  }
+
+  .link_logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  .link {
+    padding: 4px 5px;
+    border-radius: 8px;
+    font-size: 15px;
+  }
+
+  .btn_catalog {
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    font-size: 1em;
+  }
+
+  .icon_basket {
+    width: 40px;
+    height: 40px;
+  }
+
+  .number_of_products {
+    font-size: 11px;
+    width: 15px;
+    height: 15px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .link_logo {
     width: 45px;
@@ -132,7 +167,7 @@
   .btn_catalog {
     width: 90px;
     height: 35px;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: .9em;
   }
 
@@ -161,7 +196,7 @@
   .btn_catalog {
     width: 70px;
     height: 25px;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: .7em;
   }
 
