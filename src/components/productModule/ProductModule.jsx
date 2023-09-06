@@ -6,6 +6,7 @@ import Button from '../UI/button/Button';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../../store/slices/BasketSlices';
 import { useGetProductQuery } from '../../store/api/productApi';
+import ProductData from '../productsModule/productData/ProductData';
 
 
 const initProducts = [];
@@ -34,23 +35,24 @@ export default function ProductsModule() {
 
               <div className={styles.container_price_btn}>
                 <div className={styles.container_price}>
-                  <p className={styles.new_price}>{product.price}<span className={styles.dollar_sign}>$</span></p>
+
                   {product.discont_price ?
                     <>
-                      <p className={styles.old_price}>{Math.ceil(product.price / (1 - (product.discont_price / 100)))}</p>
-                      <p className={styles.discount}>{product.discont_price + '%'}</p>
+                      <p className={styles.discount_price}>{product.discont_price + '$'}</p>
+                      <p className={styles.price}>{product.price + '$'}</p>
+                      <p className={styles.discount}>{`- ${Math.ceil(100 - (product.discont_price / (product.price / 100)))} %`}</p>
                     </>
-                    : ''
+                    :
+                    <p className={styles.discount_price}>{product.price + '$'}</p>
                   }
+
                 </div>
+
+
                 <Button onClick={() => addProductInBasket(product)} className={styles.btn} buttonText={'To cart'} />
               </div>
-
-              {/* <div className={styles.description_product}> */}
               <p className={styles.text_description}>Description</p>
               <p className={styles.description}>{product.description}</p>
-              {/* </div> */}
-
             </div>
           </div>
         </div>

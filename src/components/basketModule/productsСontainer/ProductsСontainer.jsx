@@ -26,7 +26,6 @@ export default function ProductsСontainer({ basketProducts, removeProductInBask
         < div key={idx} className={styles.product_container} >
           <img className={styles.img_product} src={API_URL + product.image} alt="product" />
 
-          {/* <div className={styles.description_container}> */}
           <div className={styles.product_data_container}>
 
             <p className={styles.description}>{product.title}</p>
@@ -51,7 +50,6 @@ export default function ProductsСontainer({ basketProducts, removeProductInBask
               <p className={styles.discount_price}>{product.total_price}<span className={styles.discount_dollar}>$</span></p>
             }
           </div>
-          {/* </div> */}
 
           <img onClick={() => removeProductInBasket(product)} className={styles.img_delete} src={imgDelete} alt='icon' />
 

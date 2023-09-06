@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../../../images/header/logo.svg'
 import basket from '../../../images/header/basket.svg'
 import styles from './Header.module.css'
@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import { basketSelector } from '../../../store/slices/BasketSlices'
 import { ReactComponent as BurgerIcon } from '../../../images/header/burger.svg'
 import useWindowSize from '../../../hooks/useWindowSize'
+import BurgerMenu from '../burgerMenu/BurgerMenu'
 
 
 const links = [
@@ -26,9 +27,19 @@ const links = [
 
 export default function Header() {
 
+    const [click, setClick] = useState(false)
+
+    const openLinks = () => {
+        setClick(true)
+    }
+
     const { width } = useWindowSize();
 
     const { basket: basketProducts } = useSelector(basketSelector);
+
+    if (click) {
+        return (<BurgerMenu setClick={setClick} />)
+    }
 
     return (
         <header className={styles.headContainer}>
@@ -53,7 +64,7 @@ export default function Header() {
                             ? `${styles.link} ${styles.active}`
                             : styles.link} to={link}>{label}</NavLink>
                     ))
-                        : <BurgerIcon />
+                        : <BurgerIcon onClick={openLinks} />
                     }
                 </div>
 

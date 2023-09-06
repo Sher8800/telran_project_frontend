@@ -7,11 +7,10 @@
 }
 
 .img {
-  width: 440px;
-  height: 440px;
+  width: 420px;
+  height: 420px;
   background-repeat: no-repeat;
   object-fit: cover;
-  background: url(../../../images/home/gnome.png);
 }
 
 .container_discount {
@@ -64,7 +63,7 @@
 }
 
 .input_phone {
-  width: 400px;
+  width: 100%;
   height: 75px;
   padding: 25px;
   border-radius: 20px;
@@ -84,7 +83,7 @@
 }
 
 .btn_order {
-  width: 400px;
+  width: 100%;
   height: 75px;
   border-radius: 20px;
   border: 2.395px solid #FFF;
@@ -140,4 +139,291 @@
   line-height: 120%;
   letter-spacing: 1.5px;
   text-align: center;
+}
+
+
+@media screen and (max-width: 1500px) {
+  .container {
+    height: 480px;
+  }
+
+  .img {
+    width: 400px;
+    height: 400px;
+  }
+
+  .send_container,
+  .container_discount {
+    width: 360px;
+    height: 400px;
+  }
+
+  .discount {
+    font-size: 60px;
+  }
+
+  .text {
+    font-size: 35px;
+  }
+
+  .form_discount {
+    height: 200px;
+    margin-top: 20px;
+  }
+
+  .input_phone {
+    height: 50px;
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  .btn_order {
+    height: 50px;
+    border-radius: 20px;
+    font-size: 29px;
+  }
+
+  .error {
+    border: 1px solid #3eff29;
+    border-radius: 5px;
+    font-size: 12px;
+    margin: 8px;
+    padding: 4px;
+  }
+
+  .text_send {
+    font-size: 38px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    height: 420px;
+  }
+
+  .img {
+    width: 350px;
+    height: 350px;
+  }
+
+  .send_container,
+  .container_discount {
+    width: 300px;
+    height: 350px;
+  }
+
+  .discount {
+    font-size: 50px;
+  }
+
+  .text {
+    font-size: 30px;
+  }
+
+  .form_discount {
+    height: 150px;
+    margin-top: 20px;
+  }
+
+  .input_phone {
+    height: 45px;
+    padding: 22px;
+    border-radius: 12px;
+    font-size: 16px;
+  }
+
+  .btn_order {
+    height: 45px;
+    border-radius: 12px;
+    font-size: 23px;
+  }
+
+  .error {
+    border-radius: 5px;
+    font-size: 10px;
+    margin: 6px;
+    padding: 3px;
+  }
+
+  .text_send {
+    font-size: 38px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .container {
+    height: 350px;
+  }
+
+  .img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .send_container,
+  .container_discount {
+    width: 250px;
+    height: 290px;
+  }
+
+  .discount {
+    font-size: 38px;
+  }
+
+  .text {
+    font-size: 22px;
+  }
+
+  .form_discount {
+    height: 120px;
+    margin-top: 20px;
+  }
+
+  .phohe_Number {
+    font-size: 15px;
+  }
+
+  .input_phone {
+    height: 35px;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+
+  .btn_order {
+    height: 35px;
+    border-radius: 10px;
+    font-size: 20px;
+  }
+
+  .error {
+    border-radius: 2px;
+    font-size: 8px;
+    margin: 5px;
+    padding: 1px;
+  }
+
+  .text_send {
+    font-size: 38px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    height: 280px;
+  }
+
+  .img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .send_container,
+  .container_discount {
+    width: 180px;
+    height: 220px;
+    box-shadow: 0 0 12px 3px #b1ffb1, 0 0 10px 2px #b1ffb1;
+  }
+
+  .discount {
+    font-size: 28px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .form_discount {
+    height: 90px;
+    margin-top: 00px;
+  }
+
+  .phohe_Number {
+    font-size: 10px;
+  }
+
+  .input_phone {
+    height: 24px;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 10px;
+  }
+
+  .btn_order {
+    height: 24px;
+    border-radius: 6px;
+    font-size: 15px;
+  }
+
+  .error {
+    font-size: 7px;
+    margin: 5px;
+    padding: 1px 3px;
+  }
+
+  .text_send {
+    font-size: 38px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container {
+    height: 220px;
+  }
+
+  .img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .send_container,
+  .container_discount {
+    width: 140px;
+    height: 180px;
+    padding: 6px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px #b1ffb1, 0 0 8px 2px #b1ffb1;
+  }
+
+  .discount {
+    font-size: 22px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .form_discount {
+    height: 70px;
+  }
+
+  .phohe_Number {
+    font-size: 8px;
+    margin-bottom: 2px;
+
+  }
+
+  .input_phone {
+    height: 20px;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 10px;
+
+  }
+
+  .btn_order {
+    height: 28px;
+    border-radius: 6px;
+    font-size: 11px;
+  }
+
+  .error {
+    font-size: 5px;
+    margin: 5px;
+    padding: 1px 3px;
+  }
+
+  .text_send {
+    font-size: 38px;
+  }
 }

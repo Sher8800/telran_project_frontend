@@ -1,5 +1,4 @@
 .container {
-  margin-top: 7px;
   max-width: 100vw;
   height: 650px;
   display: flex;
@@ -49,4 +48,143 @@
   transform: scale(1.04);
   font-size: 26px;
   opacity: 1;
+}
+
+@media screen and (max-width: 1500px) {
+
+  .container {
+    height: 600px;
+  }
+
+  .container_text_btn {
+    padding-left: 45px;
+  }
+
+  .sale {
+    font-size: 75px;
+  }
+
+  .new_season {
+    font-size: 60px;
+  }
+
+  .btn {
+    width: 145px;
+    height: 70px;
+    border-radius: 18px;
+    margin-top: 50px;
+    opacity: 0.9;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+
+  .container {
+    height: 450px;
+  }
+
+  .container_text_btn {
+    padding-left: 45px;
+  }
+
+  .sale {
+    font-size: 70px;
+  }
+
+  .new_season {
+    font-size: 56px;
+  }
+
+  .btn {
+    width: 135px;
+    height: 60px;
+    border-radius: 16px;
+    font-size: 22px;
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    height: 400px;
+  }
+
+  .container_text_btn {
+    padding-left: 35px;
+  }
+
+  .sale {
+    font-size: 60px;
+  }
+
+  .new_season {
+    font-size: 50px;
+  }
+
+  .btn {
+    width: 125px;
+    height: 50px;
+    border-radius: 12px;
+    font-size: 20px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+
+  .container {
+    height: 340px;
+  }
+
+  .container_text_btn {
+    padding-left: 30px;
+    text-shadow: rgba(94, 255, 0, 0.98) 1px 0 10px;
+  }
+
+  .sale {
+    font-size: 50px;
+  }
+
+  .new_season {
+    font-size: 40px;
+  }
+
+  .btn {
+    width: 105px;
+    height: 35px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-top: 25px;
+    opacity: 0.9;
+  }
+}
+
+@media screen and (max-width: 550px) {
+
+  .container {
+    height: 220px;
+  }
+
+  .container_text_btn {
+    padding-left: 20px;
+    text-shadow: rgba(94, 255, 0, 0.98) 1px 0 10px;
+  }
+
+  .sale {
+    font-size: 35px;
+  }
+
+  .new_season {
+    font-size: 25px;
+  }
+
+  .btn {
+    width: 75px;
+    height: 25px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-top: 20px;
+    opacity: 1;
+    box-shadow: 0 3px 14px 2px #5eff00fa;
+  }
 }

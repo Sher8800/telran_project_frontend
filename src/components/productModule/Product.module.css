@@ -56,19 +56,19 @@
   align-items: center;
 }
 
-.new_price {
+.discount_price {
   color: #000;
   font-size: 70px;
   font-weight: 600;
   letter-spacing: 2.1px;
 }
 
-.dollar_sign {
+/* .dollar_sign {
   font-size: 20px;
   letter-spacing: 0.6px;
-}
+} */
 
-.old_price {
+.price {
   color: #8B8B8B;
   font-size: 20px;
   font-weight: 500;
@@ -157,7 +157,7 @@
 
 @media screen and (max-width: 1500px) {
 
-  .new_price {
+  .discount_price {
     font-size: 55px;
   }
 
@@ -183,12 +183,12 @@
 
 @media screen and (max-width: 1200px) {
 
-  .new_price {
+  .discount_price {
     font-size: 40px;
   }
 
   .dollar_sign,
-  .old_price {
+  .price {
     font-size: 18px;
   }
 
@@ -236,12 +236,12 @@
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2), 0 0 20px 10px rgba(0, 0, 0, 0.19);
   }
 
-  .new_price {
+  .discount_price {
     font-size: 35px;
   }
 
   .dollar_sign,
-  .old_price {
+  .price {
     font-size: 16px;
   }
 
@@ -284,12 +284,12 @@
     box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.2), 0 0 16px 8px rgba(0, 0, 0, 0.19);
   }
 
-  .new_price {
+  .discount_price {
     font-size: 30px;
   }
 
   .dollar_sign,
-  .old_price {
+  .price {
     font-size: 15px;
   }
 
@@ -336,12 +336,12 @@
     border-radius: 14px;
   }
 
-  .new_price {
+  .discount_price {
     font-size: 24px;
   }
 
   .dollar_sign,
-  .old_price {
+  .price {
     font-size: 12px;
   }
 
@@ -389,12 +389,12 @@
     box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2), 0 0 12px 5px rgba(0, 0, 0, 0.19);
   }
 
-  .new_price {
+  .discount_price {
     font-size: 20px;
   }
 
   .dollar_sign,
-  .old_price {
+  .price {
     font-size: 10px;
   }
 

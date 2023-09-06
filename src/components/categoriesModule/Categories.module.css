@@ -19,7 +19,7 @@
 }
 
 .container_categorie {
-  width: 24%;
+  width: 330px;
   height: 450px;
   text-decoration: none;
   padding: 10px;
@@ -50,8 +50,37 @@
   text-align: center;
 }
 
-@media screen and (max-width: 1200px) {
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1500px) {
+  .container_categories {
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 45px;
+    row-gap: 25px;
+  }
+
   .container_categorie {
+    width: 22%;
+    height: 410px;
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container_categories {
+    column-gap: 10px;
+    row-gap: 15px;
+  }
+
+  .container_categorie {
+    width: 24%;
     height: 410px;
   }
 

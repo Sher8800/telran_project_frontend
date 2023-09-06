@@ -4,6 +4,7 @@ import { useSendDiscountMutation } from '../../../store/api/productApi'
 import Button from '../../UI/button'
 import Input from '../../UI/input/Input'
 import { useForm } from 'react-hook-form'
+import gnome from '../../../images/home/gnome.png'
 
 export default function Discount() {
 
@@ -26,7 +27,7 @@ export default function Discount() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.img}></div>
+      <img className={styles.img} src={gnome} alt="gnome" />
       <>{!setsendState ?
         <div className={styles.container_discount}>
           <p className={styles.discount}>5% off </p>

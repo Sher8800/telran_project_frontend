@@ -9,11 +9,11 @@ export default function ProductData({ product }) {
         {product.discont_price ?
           <>
             <p className={styles.discount_price}>{product.discont_price + '$'}</p>
-            <p className={styles.price}>{product.price}</p>
+            <p className={styles.price}>{product.price + '$'}</p>
             <p className={styles.discount}>{`- ${Math.ceil(100 - (product.discont_price / (product.price / 100)))} %`}</p>
           </>
           :
-          <p className={styles.discount_price}>{product.price}</p>
+          <p className={styles.discount_price}>{product.price + '$'}</p>
         }
 
       </div>
