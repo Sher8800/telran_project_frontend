@@ -1,6 +1,6 @@
 .container_sale,
 .tools_container {
-  margin: 40px 30px 0 30px;
+  margin: 30px 30px;
 }
 
 .page_title {
@@ -11,7 +11,7 @@
 }
 
 .sale {
-  margin: 50px 0 20px 0;
+  margin-bottom: 20px;
 }
 
 .form_container,
@@ -24,14 +24,13 @@
 .products_container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  column-gap: 65px;
-  row-gap: 40px;
+  justify-content: flex-start;
+  gap: 35px;
 }
 
 .product_container {
-  width: 25%;
-  height: 400px;
+  width: 23%;
+  height: 430px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -63,7 +62,6 @@
 .btn_add {
   opacity: 0;
   width: 230px;
-  height: 52px;
   border-radius: 21px;
   font-size: 18px;
   font-weight: 700;
@@ -85,8 +83,7 @@
 .btn_add::before {
   content: '';
   border-radius: 31px;
-  min-width: 241px;
-  min-height: 60px;
+  width: 241px;
   border: 6px solid #F1FFF1;
   position: absolute;
   top: 50%;
@@ -128,14 +125,18 @@
 }
 
 @media screen and (max-width: 1500px) {
+  .sale {
+    margin-bottom: 28px;
+  }
+
   .products_container {
-    column-gap: 45px;
-    row-gap: 60px;
+    gap: 45px;
   }
 
   .product_container {
     width: 22%;
-    height: 400px;
+    height: auto;
+    justify-content: flex-start;
   }
 
   .img_product {
@@ -145,13 +146,12 @@
   .btn_add {
     opacity: 1;
     width: 150px;
-    height: 30px;
     border-radius: 15px;
     font-size: 12px;
     position: relative;
     bottom: 0;
     margin-bottom: 0;
-    margin: 20px 0;
+    margin: 15px 0;
     color: rgba(0, 0, 0, 1);
     box-shadow: 0 0px 10px 4px rgb(94, 255, 0, 1), 0 0px 24px 3px rgb(94, 255, 0, 1);
     padding: 5px;
@@ -159,10 +159,16 @@
 
   .btn_add::before {
     border-radius: 31px;
-    min-width: 160px;
-    min-height: 40px;
+    width: 160px;
     opacity: 1;
     border: 6px solid #F1FFF1;
+  }
+
+  .btn_add::before {
+    border-radius: 22px;
+    width: 110%;
+    height: 120%;
+    border: 2px solid #F1FFF1;
   }
 
   .btn_add:active {
@@ -180,7 +186,7 @@
   }
 
   .sale {
-    margin: 30px 0 15px 0;
+    margin: 0 0 15px 0;
   }
 
   .form_container,
@@ -190,32 +196,25 @@
   }
 
   .products_container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    column-gap: 35px;
-    row-gap: 40px;
+    gap: 38px;
   }
 
   .product_container {
     width: 22%;
-    height: 380px;
   }
 
   .btn_add {
     width: 130px;
-    height: 25px;
     font-size: 12px;
     border-radius: 10px;
-    margin: 20px 0;
+    margin: 12px 0;
     box-shadow: 0 0px 5px 2px rgb(94, 255, 0, 1), 0 0px 12px 1.5px rgb(94, 255, 0, 1);
     padding: 5px;
   }
 
   .btn_add::before {
     border-radius: 22px;
-    min-width: 140px;
-    min-height: 35px;
+    width: 140px;
     border: 4px solid #F1FFF1;
   }
 }
@@ -243,18 +242,21 @@
   }
 
   .products_container {
-    column-gap: 40px;
-    column-gap: 55px;
-    row-gap: 40px;
+    gap: 26px;
   }
 
   .product_container {
     width: 22%;
-    height: 330px;
+    padding: 4px;
   }
 }
 
 @media screen and (max-width: 768px) {
+
+  .container_sale,
+  .tools_container {
+    margin: 20px;
+  }
 
   .page_title {
     font-size: 25px;
@@ -266,12 +268,25 @@
   }
 
   .products_container {
-    column-gap: 25px;
-    row-gap: 30px;
+    gap: 30px;
   }
 
   .product_container {
     width: 47%;
+    padding: 5px;
+  }
+
+  .btn_add {
+    width: 60%;
+    font-size: 14px;
+    margin: 12px 0;
+    padding: 05px;
+    box-shadow: 0 0px 3px 2px rgb(94, 255, 0, 1), 0 0px 8px 1px rgb(94, 255, 0, 1);
+  }
+
+  .btn_add::before {
+    width: 110%;
+    height: 120%;
   }
 }
 
@@ -279,7 +294,7 @@
 
   .container_sale,
   .tools_container {
-    margin: 15px 10px 0 10px;
+    margin: 15px 20px 0 20px;
   }
 
   .page_title {
@@ -291,29 +306,24 @@
   }
 
   .products_container {
-    column-gap: 10px;
-    row-gap: 15px;
+    gap: 15px;
+    justify-content: center;
   }
 
   .product_container {
+    border-radius: 12px;
     max-width: 48%;
-    padding: 5px;
+    padding: 3px;
+  }
+
+  .img_product {
+    border-radius: 10px 10px 0 0;
   }
 
   .btn_add {
-    width: 65px;
-    height: 15px;
-    font-size: 7px;
-    border-radius: 10px;
-    margin: 5px 0;
-    box-shadow: 0 0px 3px 2px rgb(94, 255, 0, 1), 0 0px 5px 1px rgb(94, 255, 0, 1);
-    padding: 5px;
-  }
-
-  .btn_add::before {
-    border-radius: 22px;
-    min-width: 75px;
-    min-height: 25px;
-    border: 2px solid #F1FFF1;
+    width: 40%;
+    font-size: 6px;
+    margin: 8px 0;
+    padding: 3px;
   }
 }
