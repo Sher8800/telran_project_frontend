@@ -98,6 +98,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
 }
 
 .discount_price {
@@ -120,6 +121,8 @@
   font-weight: 500;
   letter-spacing: 0.6px;
   text-decoration: line-through;
+  box-sizing: border-box;
+  /* margin-left: 10px; */
 }
 
 .img_delete {
@@ -291,10 +294,6 @@
 
   .plus {
     width: 1.1em;
-  }
-
-  .product_price_container {
-    flex-direction: column;
   }
 
   .img_delete {

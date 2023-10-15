@@ -43,11 +43,11 @@ export default function ProductsСontainer({ basketProducts, removeProductInBask
           <div className={styles.product_price_container}>
             {product.discont_price ?
               <>
-                <p className={styles.discount_price}>{product.discount_total_price}<span className={styles.discount_dollar}>$</span></p>
-                <p className={styles.price}>{`${product.total_price}$`}</p>
+                <p className={styles.discount_price}>{product.discount_total_price.toFixed(2)}<span className={styles.discount_dollar}>$</span></p>
+                <p className={styles.price}>{`${product.total_price.toFixed(2)}$`}</p>
               </>
               :
-              <p className={styles.discount_price}>{product.total_price}<span className={styles.discount_dollar}>$</span></p>
+              <p className={styles.discount_price}>{product.total_price.toFixed(2)}<span className={styles.discount_dollar}>$</span></p>
             }
           </div>
 
